@@ -47,3 +47,30 @@ Always run `python3 scripts/build.py` after editing, then commit the generated H
 - `assets/covers/`: the nine Instagram series covers
 - `assets/carousel/`: the 9-slide Academy carousel
 - `assets/brand/`: hero image, social sharing image and the pink cursor variants
+
+## Studio: Instagram carousels (`/studio`)
+
+30 ready-to-post carousels. Each post has 5 slides at 1080 × 1350 (Instagram 4:5):
+a cover, three slides explaining the idea, and a "Comment AGENT" slide. Each post's
+artwork is painted as one 5400 × 1350 panorama and cut into slides, so the art
+flows on as people swipe.
+
+On the site, **Download all 5** saves a zip with the five JPGs plus `caption.txt`.
+On phones that support it, **Save to phone** opens the share sheet so you can save
+all five to your gallery at once. **Download everything** zips all 30 posts.
+
+### Make or edit posts
+
+- Content: `studio-src/posts.js` (titles, slides, gift for the "Comment AGENT" slide, hook for the caption)
+- Design: `studio-src/template.html` (12 palettes, 10 art styles, 5 slide layouts: `big`, `list`, `steps`, `compare`, `prompt`)
+- Renderer: `studio-src/render.js`
+
+```bash
+cd studio-src
+npm install && npx playwright install chromium   # first time only
+node render.js                    # render all posts
+node render.js comment-to-dm      # or just one
+cd .. && python3 scripts/build.py # refresh the /studio page
+```
+
+Output goes to `assets/studio/<slug>/` and `studio/posts.json` (captions included).

@@ -1,0 +1,7 @@
+{
+  "name": "karl-agentic-studio",
+  "private": true,
+  "description": "Renders the Studio Instagram carousels (5 × 1080×1350 JPGs per post).",
+  "scripts": { "render": "node render.js" },
+  "dependencies": { "playwright": "1.49.1" }
+}

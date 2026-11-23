@@ -151,7 +151,7 @@ def header(active=""):
     return f'''<header class="site-head"><div class="wrap">
   <a class="brand" href="/" aria-label="Karl Agentic home"><img src="/assets/logo/logo-mark-transparent.png" alt="" width="34" height="34"><b>Karl</b><span>Agentic</span></a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-  <nav class="nav" id="nav">{a("/#agents","Agents","agents")}{a("/#how","How it works","how")}{a("/#work","Work","work")}{a("/academy","Academy","academy")}{a("/brand","Brand","brand")}
+  <nav class="nav" id="nav">{a("/#agents","Agents","agents")}{a("/#how","How it works","how")}{a("/#work","Work","work")}{a("/academy","Academy","academy")}{a("/studio","Studio","studio")}{a("/brand","Brand","brand")}
     <a class="btn btn-pink" href="{WA}" target="_blank" rel="noopener">Book a demo</a></nav>
 </div></header>'''
 
@@ -160,7 +160,7 @@ def footer():
     return f'''<footer class="site-foot"><div class="wrap">
   <div><a class="brand" href="/" style="color:#fff"><img src="/assets/logo/logo-mark-transparent.png" alt="" width="34" height="34"><b>Karl</b><span>Agentic</span></a>
     <p style="margin-top:.9rem;max-width:34ch">Verified AI agents for real businesses. Booking, marketing, sales and operations.</p></div>
-  <div><h4>Company</h4><a href="/#agents">Agents</a><a href="/#how">How it works</a><a href="/#work">Work</a><a href="/#faq">FAQ</a><a href="/brand">Brand kit</a></div>
+  <div><h4>Company</h4><a href="/#agents">Agents</a><a href="/#how">How it works</a><a href="/#work">Work</a><a href="/#faq">FAQ</a><a href="/studio">Studio</a><a href="/brand">Brand kit</a></div>
   <div><h4>Academy</h4>{s}<a href="/academy">All series →</a></div>
   <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="{CONFIG["instagram"]}" target="_blank" rel="noopener">Instagram {CONFIG["instagram_handle"]}</a><span style="user-select:all">{CONFIG["email"]}</span></div>
   <div class="legal"><span>© 2026 Karl Agentic. Part of the KarlCon family.</span><span>Built with HTML, hosted on Vercel.</span></div>
@@ -338,8 +338,28 @@ def brand_page():
             + src.replace("<title>", '<title>', 1) +
             '<p style="text-align:center;padding:2rem;font-family:Manrope,sans-serif"><a href="/" style="color:#0A5CE0;font-weight:700">← Back to karlagentic</a></p></body></html>')
 
+def studio_page():
+    posts = json.loads((ROOT / "studio" / "posts.json").read_text())
+    cats = ["All"] + sorted({p["cat"] for p in posts})
+    chips = "".join(f'<button type="button" aria-pressed="{"true" if c=="All" else "false"}">{c}</button>' for c in cats)
+    body = f'''{header("studio")}
+<main>
+<section class="studio-hero"><div class="wrap">
+  <span class="eyebrow" style="color:#8EC9FF">Studio · Instagram posts, ready to publish</span>
+  <h1>Five slides. <em class="serif">One tap.</em></h1>
+  <p class="lede">Every post is a 5-slide carousel at 1080 × 1350 (Instagram 4:5). The artwork flows from slide to slide as you swipe. Download all five at once, then post them in order with the caption.</p>
+  <div class="studio-bar"><div class="filters" id="studio-filters">{chips}</div>
+    <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap"><span class="eyebrow" id="studio-count" style="color:#93A1BF">{len(posts)} posts</span><button class="btn btn-pink" id="dl-all" type="button">Download everything (.zip)</button></div></div>
+</div></section>
+<div class="wrap"><div class="studio-grid" id="studio-grid" aria-live="polite"><p style="color:var(--muted)">Loading posts…</p></div></div>
+</main>
+<script src="/js/vendor/jszip.min.js"></script>
+<script src="/js/studio.js" defer></script>
+{footer()}'''
+    return head("Studio | Karl Agentic", "Download ready-made 5-slide Instagram carousels with captions: AI agents, automation, design, 3D, web and marketing.", "/studio", "/assets/studio/what-is-an-ai-agent/what-is-an-ai-agent-1.jpg") + body
+
 def sitemap():
-    urls = ["/", "/academy", "/brand"] + [f'/academy/{s["slug"]}' for s in SERIES]
+    urls = ["/", "/academy", "/studio", "/brand"] + [f'/academy/{s["slug"]}' for s in SERIES]
     rows = "".join(f"<url><loc>{CONFIG['site_url']}{u}</loc></url>" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
 
@@ -350,6 +370,8 @@ if __name__ == "__main__":
     for s in SERIES:
         (ROOT / "academy" / f'{s["slug"]}.html').write_text(series_page(s))
     (ROOT / "brand" / "index.html").write_text(brand_page())
+    (ROOT / "studio").mkdir(exist_ok=True)
+    (ROOT / "studio" / "index.html").write_text(studio_page())
     (ROOT / "sitemap.xml").write_text(sitemap())
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {CONFIG['site_url']}/sitemap.xml\n")
-    print("built", 3 + len(SERIES), "pages")
+    print("built", 4 + len(SERIES), "pages")

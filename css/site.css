@@ -187,3 +187,29 @@ pre.code{background:var(--navy);color:#E8EEFA;border-radius:12px;padding:1rem;ov
   .case{padding:1.3rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* studio */
+.studio-hero{background:#070D1F;color:#fff;padding-block:4.5rem 2.5rem}
+.studio-hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;letter-spacing:-.035em;margin:.6rem 0 1rem}
+.studio-hero .lede{color:#C9D6EE}
+.studio-bar{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between;margin-top:2rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem}
+.filters button{font:600 .85rem var(--f-body);padding:.45rem .9rem;border-radius:99px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#C9D6EE;cursor:pointer}
+.filters button[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff}
+.studio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;padding-block:2.5rem}
+.sp{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.sp-cover{position:relative;border:0;padding:0;cursor:pointer;background:#000;display:block}
+.sp-cover img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.sp-n{position:absolute;right:.7rem;top:.7rem;background:rgba(0,0,0,.55);color:#fff;font:600 .72rem var(--f-mono);padding:.3rem .6rem;border-radius:99px;backdrop-filter:blur(6px)}
+.sp-body{padding:1.1rem 1.2rem 1.3rem;display:grid;gap:.55rem}
+.sp-body h3{font-size:1.1rem}
+.sp-body p{color:var(--muted);font-size:.88rem}
+.sp-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem}
+.sp-strip img{border-radius:6px;aspect-ratio:4/5;object-fit:cover}
+.sp-actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
+.btn.sm{padding:.55rem .9rem;font-size:.82rem}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.sp-cap summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--blue-deep)}
+.sp-cap pre{white-space:pre-wrap;font:.8rem/1.55 var(--f-body);background:var(--paper);border-radius:10px;padding:.8rem;margin:.5rem 0 0;max-height:240px;overflow:auto}
+@media (max-width:960px){.studio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.studio-grid{grid-template-columns:1fr}}
