@@ -6,20 +6,24 @@ Edit CONFIG and the SERIES content below, then run:
 It rewrites index.html, academy/*.html and brand/index.html. Commit the result;
 Vercel serves the files as they are (no build step needed).
 """
-import html, json, pathlib, re
+import html, json, pathlib, re, urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # ---------------------------------------------------------------- config
 CONFIG = {
     "site_url": "https://karlagentic.vercel.app",       # change when the domain is live
-    "whatsapp": "https://wa.me/000000000000",           # TODO: your WhatsApp Business number, digits only
-    "whatsapp_text": "Hi Karl Agentic, I'd like a free demo of an AI agent for my business.",
-    "email": "hello@karlagentic.com",                   # TODO: real inbox
+    "email": "karlagenticzw@gmail.com",                   # TODO: real inbox
     "instagram": "https://instagram.com/karlagentic",
     "instagram_handle": "@karlagentic",
 }
-WA = f'{CONFIG["whatsapp"]}?text={html.escape(CONFIG["whatsapp_text"]).replace(" ", "%20")}'
+def gmail(subject, intro):
+    """Gmail compose link to our inbox with the subject and an enquiry template filled in."""
+    body = (f"Hi Karl Agentic,\n\n{intro}\n\nName:\nCompany:\nWhat I need:\nBudget (USD):\nTimeline:\n"
+            "Best way to reach me:\n\nThank you")
+    q = lambda t: urllib.parse.quote(t, safe="")
+    return f'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={q(CONFIG["email"])}&amp;su={q(subject)}&amp;body={q(body)}'
+WA = gmail("Enquiry: free demo and quote", "I'd like a free demo and a quote for my business.")
 
 # ---------------------------------------------------------------- academy content
 SERIES = [
@@ -162,7 +166,7 @@ def footer():
     <p style="margin-top:.9rem;max-width:36ch">Tech consulting, AI agents, automation, GPU infrastructure and creative production.</p></div>
   <div><h4>Solutions</h4><a href="/#agents">AI agents and bots</a><a href="/#social">Social media automation</a><a href="/#servers">Servers and setup</a><a href="/hardware">GPUs and hardware</a><a href="/#creative">Rendering and video</a></div>
   <div><h4>Resources</h4><a href="/studio">Studio</a><a href="/academy">Academy</a>{s}<a href="/brand">Brand kit</a></div>
-  <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="{CONFIG["instagram"]}" target="_blank" rel="noopener">Instagram {CONFIG["instagram_handle"]}</a><span style="user-select:all">{CONFIG["email"]}</span></div>
+  <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">Email us (Gmail)</a><a href="{CONFIG["instagram"]}" target="_blank" rel="noopener">Instagram {CONFIG["instagram_handle"]}</a><span style="user-select:all">{CONFIG["email"]}</span></div>
   <p class="tm">NVIDIA, GeForce, RTX, DGX and Jetson are trademarks of NVIDIA Corporation. Other product names are trademarks of their owners. Karl Agentic is an independent consultancy and is not affiliated with or endorsed by NVIDIA. Hardware images on this site are our own illustrations. Prices, stock and warranty terms are confirmed in writing with each quote.</p>
   <div class="legal"><span>© 2026 Karl Agentic. Part of the KarlCon family.</span><span>Hosted on Vercel.</span></div>
 </div></footer>
@@ -182,8 +186,7 @@ HARDWARE = [
 ]
 
 def hw_card(k, name, ex, desc, quote=True):
-    q = html.escape(f"Hi Karl Agentic, I'd like a quote for: {name}.").replace(" ", "%20")
-    link = f'<a class="more" href="{CONFIG["whatsapp"]}?text={q}" target="_blank" rel="noopener">Request a quote</a>' if quote else '<a class="more" href="/hardware">See options</a>'
+    link = f'<a class="more" href="{gmail(f"Quote request: {name}", f"I would like a quote for: {name} ({ex}).")}" target="_blank" rel="noopener">Request a quote</a>' if quote else '<a class="more" href="/hardware">See options</a>'
     return f'<article class="hw"><img src="/assets/hw/{k}.jpg" alt="Illustration: {html.escape(name)}" loading="lazy" width="1200" height="800"><div class="tb"><span class="ex">{ex}</span><h3>{name}</h3><p>{desc}</p>{link}</div></article>'
 
 SOLUTIONS = [
@@ -221,6 +224,7 @@ def load_prices():
     return data
 
 def rand(v): return "R" + f"{v:,.0f}".replace(",", " ")
+def usd(v, fx): return "$" + f"{v / fx:,.0f}"
 
 def price_table(data, compact=False):
     rows = ""
@@ -231,10 +235,11 @@ def price_table(data, compact=False):
         n = len(pr["used"])
         stores = ", ".join(dict.fromkeys(l["store"] for l in pr["used"]))
         label = f"Avg of {n} lowest" if n == 4 else f"Avg of {n} found"
-        rows += f'<tr><th scope="row">{pr["name"]}</th><td class="avg">{rand(pr["avg"])}<small>{label}</small></td><td>{rand(pr["low"])} – {rand(pr["high"])}</td><td>{stores}</td></tr>'
+        fx = data["fx"]["usd_zar"]
+        rows += f'<tr><th scope="row">{pr["name"]}</th><td class="avg">{usd(pr["avg"], fx)}<small>{label}</small></td><td>{usd(pr["low"], fx)} – {usd(pr["high"], fx)}</td><td>{stores}</td></tr>'
     d = data["checked"]
-    return f'''<div class="price-wrap"><table class="prices"><thead><tr><th scope="col">Product</th><th scope="col">Average price</th><th scope="col">Range used</th><th scope="col">Sources</th></tr></thead><tbody>{rows}</tbody></table></div>
-<p class="note-sm">Checked {d}. {data["method"]} Store links and listing notes are in the project README.</p>'''
+    return f'''<div class="price-wrap"><table class="prices"><thead><tr><th scope="col">Product</th><th scope="col">Average (USD)</th><th scope="col">Range used</th><th scope="col">Sources</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="note-sm">Checked {d}. {data["method"]} Exchange rate: 1 USD = R{data["fx"]["usd_zar"]} ({data["fx"]["source"]}, {data["fx"]["date"]}). Store links, rand prices and listing notes are in the project README.</p>'''
 
 def landing():
     tiles = "".join(f'''<article class="tile2" id="sol-{i}"><div class="img"><img src="{img}" alt="" loading="lazy"></div><div class="tb"><span class="lab">{lab}</span><h3>{h}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul><a class="more" href="{href}">Learn more</a></div></article>''' for i,img,lab,h,p,li,href in SOLUTIONS)
@@ -246,7 +251,7 @@ def landing():
       ("What about warranty and delivery?","Hardware comes with the supplier's or manufacturer's warranty. We confirm warranty, delivery time and price in writing with every quote, because stock changes quickly."),
       ("Can you host AI privately, without sending data to the cloud?","Yes. We can set up local models on your own GPU machine or server, so documents and customer data stay on your network."),
       ("Do I need hardware to use AI agents?","No. Most agents and automations run in the cloud. Hardware makes sense for private AI, heavy rendering or high volumes. We'll tell you honestly which fits."),
-      ("How do we start?","Send us a WhatsApp message. We book a free call, understand your goals and send a written proposal and quote."),
+      ("How do we start?",f"Tap any Get a quote button. Gmail opens with an enquiry to {CONFIG['email']} ready to send. We book a free call, understand your goals and send a written proposal and quote in US dollars."),
     ]
     faq = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q,a in faqs)
     body = f'''{header("solutions")}
@@ -275,7 +280,7 @@ def landing():
     <div class="nv-head" style="margin-bottom:0"><span class="bar"></span><span class="eyebrow">Server installation and configuration</span><h2>From bare metal to running AI in a day.</h2>
     <p class="lede">We install and harden the operating system, set up GPU drivers, containers and your automation stack, then hand over documentation and remote support.</p></div>
     <ul class="checks"><li>Ubuntu Server and security hardening</li><li>NVIDIA drivers, CUDA and container toolkit</li><li>Docker and Docker Compose stacks</li><li>Private LLMs with Ollama or vLLM</li><li>Self-hosted n8n automations</li><li>Backups, monitoring and alerts</li><li>VPN and secure remote access</li><li>Documentation and handover</li></ul>
-    <p style="margin-top:1.8rem"><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Book a server setup</a></p>
+    <p style="margin-top:1.8rem"><a class="nv-btn solid" href="{gmail("Enquiry: server installation and configuration", "I'd like a quote to install and configure a server.")}" target="_blank" rel="noopener">Book a server setup</a></p>
   </div>
   <div class="term" role="img" aria-label="Example terminal session on a GPU server"><div class="bar"><span><i></i><i></i><i></i></span><span>EXAMPLE SETUP · gpu-01</span></div>
 <pre><span class="p">karl@gpu-01</span>:~$ nvidia-smi --query-gpu=name,memory.total --format=csv
@@ -294,7 +299,7 @@ def landing():
 <section class="nv-sec" id="hardware"><div class="wrap">
   <div class="nv-head"><span class="bar"></span><span class="eyebrow">GPUs and hardware</span><h2>NVIDIA GPUs and servers, sourced in South Africa.</h2><p class="lede">Tell us the workload. We spec the hardware, compare local suppliers, quote you in writing, then deliver, install and configure it.</p></div>
   <div class="hw-row">{hw}</div>
-  <div class="chips-row">{"".join(f'<span class="pchip"><b>{p["name"].split(" (")[0]}</b>{rand(p["avg"])} avg</span>' for p in load_prices()["products"] if p["avg"])}</div>
+  <div class="chips-row">{"".join(f'<span class="pchip"><b>{p["name"].split(" (")[0]}</b>{usd(p["avg"], load_prices()["fx"]["usd_zar"])} avg</span>' for p in load_prices()["products"] if p["avg"])}</div>
   <p style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap"><a class="nv-btn line" href="/hardware#prices">See the price guide</a><a class="nv-btn line" href="/hardware">View all hardware</a><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a></p>
   <p class="note-sm">Illustrations are representative. Model availability changes often; we confirm current models, prices and warranty with each quote.</p>
 </div></section>
@@ -338,7 +343,7 @@ def landing():
 
 <section class="nv-sec" id="how"><div class="wrap">
   <div class="nv-head"><span class="bar"></span><span class="eyebrow">How we work</span><h2>Consult. Build. Deploy. Support.</h2></div>
-  <div class="steps4"><div><b>01</b><h3>Consult</h3><p>A free call to understand your goals, budget and current tools.</p></div><div><b>02</b><h3>Build</h3><p>We spec hardware, build agents and automations, and design the creative.</p></div><div><b>03</b><h3>Deploy</h3><p>Install, configure and test with you. Nothing goes live without your OK.</p></div><div><b>04</b><h3>Support</h3><p>Monitoring, monthly improvements and a team you can WhatsApp.</p></div></div>
+  <div class="steps4"><div><b>01</b><h3>Consult</h3><p>A free call to understand your goals, budget and current tools.</p></div><div><b>02</b><h3>Build</h3><p>We spec hardware, build agents and automations, and design the creative.</p></div><div><b>03</b><h3>Deploy</h3><p>Install, configure and test with you. Nothing goes live without your OK.</p></div><div><b>04</b><h3>Support</h3><p>Monitoring, monthly improvements and a team that answers your emails fast.</p></div></div>
 </div></section>
 
 <section class="nv-sec alt" id="work"><div class="wrap">
@@ -358,7 +363,7 @@ def landing():
 
 <section class="cta-nv" id="contact"><div class="wrap">
   <div><h2>Let's build your agents, servers and content.</h2><p>Free 15-minute call. Tell us what you want to automate, render or run, and we'll send a written plan and quote.</p><p class="contact-line">{CONFIG["email"]}</p></div>
-  <a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  <a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Email us in Gmail</a>
 </div></section>
 </main>
 {footer()}'''
@@ -372,7 +377,7 @@ def hardware_page():
   <div><span class="eyebrow">GPUs · Workstations · Servers · Edge AI</span>
     <h1>Hardware for AI,<br>rendering and <span>video.</span></h1>
     <p class="lede">We source NVIDIA GPUs, AI workstations and GPU servers from suppliers in South Africa, then deliver, install and configure them for your workload.</p>
-    <div class="ctas"><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a><a class="nv-btn line" href="#catalogue">Browse categories</a></div></div>
+    <div class="ctas"><a class="nv-btn solid" href="{gmail("Quote request: hardware", "I'd like a hardware quote.")}" target="_blank" rel="noopener">Request a quote</a><a class="nv-btn line" href="#catalogue">Browse categories</a></div></div>
   <div class="logo-card"><img src="/assets/hw/rack.jpg" alt="Illustration of a GPU server rack" width="1200" height="800"></div>
 </div></section>
 <section class="nv-sec" id="catalogue"><div class="wrap">
@@ -388,7 +393,7 @@ def hardware_page():
   <div class="nv-head"><span class="bar"></span><span class="eyebrow">How sourcing works</span><h2>From workload to working machine.</h2></div>
   <div class="steps4"><div><b>01</b><h3>Workload</h3><p>Tell us what you'll run: rendering, video, local AI, servers or edge devices.</p></div><div><b>02</b><h3>Spec and compare</h3><p>We recommend a configuration and compare prices from South African suppliers.</p></div><div><b>03</b><h3>Quote</h3><p>A written quote with model, price, warranty and delivery time.</p></div><div><b>04</b><h3>Install</h3><p>Delivery, installation, drivers, CUDA, Docker and your software stack.</p></div></div>
 </div></section>
-<section class="cta-nv"><div class="wrap"><div><h2>Not sure what you need?</h2><p>Send us your workload and budget. We'll recommend the right GPU or server, or tell you if the cloud is the better deal.</p></div><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Ask on WhatsApp</a></div></section>
+<section class="cta-nv"><div class="wrap"><div><h2>Not sure what you need?</h2><p>Send us your workload and budget. We'll recommend the right GPU or server, or tell you if the cloud is the better deal.</p></div><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Email us in Gmail</a></div></section>
 </main>
 {footer()}'''
     return head("Hardware | Karl Agentic", "NVIDIA GPUs, AI workstations, GPU servers and edge AI hardware sourced in South Africa, delivered, installed and configured by Karl Agentic.", "/hardware", "/assets/hw/rack.jpg") + body
@@ -489,15 +494,16 @@ def studio_page():
 
 
 def write_readme_sources(data):
-    lines = [f"Checked {data['checked']}. {data['method']}", ""]
+    lines = [f"Checked {data['checked']}. {data['method']}", "", f"Exchange rate: 1 USD = R{data['fx']['usd_zar']} ([{data['fx']['source']}]({data['fx']['url']}), {data['fx']['date']}).", ""]
     stores = {}
     for pr in data["products"]:
         if not pr["used"]:
             lines += [f"### {pr['name']}", "", pr.get("note", ""), ""]
             continue
-        lines += [f"### {pr['name']}: average {rand(pr['avg'])}", "", "| Store | Item | Price | Note |", "|---|---|---|---|"]
+        fx = data["fx"]["usd_zar"]
+        lines += [f"### {pr['name']}: average {usd(pr['avg'], fx)} ({rand(pr['avg'])})", "", "| Store | Item | Price (USD) | Price (ZAR) | Note |", "|---|---|---|---|---|"]
         for l in pr["used"]:
-            lines.append(f"| [{l['store']}]({l['url']}) | {l['item']} | {rand(l['price'])} | {l['note']} |")
+            lines.append(f"| [{l['store']}]({l['url']}) | {l['item']} | {usd(l['price'], fx)} | {rand(l['price'])} | {l['note']} |")
             stores.setdefault(l["store"], l["url"].split("/")[2])
         lines.append("")
     lines += ["### All stores and where each price was found", ""] + [f"- **{k}**: price found on {v}" for k, v in stores.items()] + [""]

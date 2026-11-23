@@ -1,63 +1,195 @@
 {
   "checked": "2026-11-23",
-  "method": "Average of the 4 lowest South African listings found by web search on the date checked. Prices include VAT unless stated. Listings change daily; these are indicative only and every quote is confirmed with the supplier.",
+  "method": "Average of the 4 lowest South African listings found by web search on the date checked, converted from rand to US dollars. Store prices include South African VAT. Listings change daily; these are indicative only and every quote is confirmed with the supplier.",
   "products": [
     {
       "name": "GeForce RTX 5070 (12GB)",
       "category": "gpu-geforce",
       "listings": [
-        {"store": "Evetech", "item": "Palit RTX 5070 Infinity 3", "price": 13999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa", "note": "Evetech price guide, Aug 2026"},
-        {"store": "Evetech", "item": "Palit RTX 5070 OC White", "price": 13999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa", "note": "Evetech price guide, Aug 2026"},
-        {"store": "Evetech", "item": "MSI RTX 5070 Shadow 2X", "price": 14499, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa", "note": "Evetech price guide, Aug 2026"},
-        {"store": "Evetech", "item": "MSI RTX 5070 Ventus 2X", "price": 14499, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa", "note": "Evetech price guide, Aug 2026"}
+        {
+          "store": "Evetech",
+          "item": "Palit RTX 5070 Infinity 3",
+          "price": 13999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        },
+        {
+          "store": "Evetech",
+          "item": "Palit RTX 5070 OC White",
+          "price": 13999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        },
+        {
+          "store": "Evetech",
+          "item": "MSI RTX 5070 Shadow 2X",
+          "price": 14499,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        },
+        {
+          "store": "Evetech",
+          "item": "MSI RTX 5070 Ventus 2X",
+          "price": 14499,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        }
       ]
     },
     {
       "name": "GeForce RTX 5070 Ti (16GB)",
       "category": "gpu-geforce",
       "listings": [
-        {"store": "Dreamware", "item": "RTX 5070 Ti (lowest recorded)", "price": 18359, "url": "https://evezone.evetech.co.za/performance-pulse/is-the-rtx-5070-ti-worth-buying-in-south-africa-in-2026", "note": "Lowest price in a 2026 retailer comparison"},
-        {"store": "Evetech", "item": "RTX 5070 Ti (from)", "price": 19999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-ti-price-south-africa", "note": "Evetech price guide, Aug 2026"},
-        {"store": "Comx Computers", "item": "MSI RTX 5070 Ti Shadow 3X OC", "price": 20600, "url": "https://www.comx-computers.co.za/RTX-5070-TI-16G-SHA-3X-OC-MSI-RTX-5070-Ti-Shadow-3x-Buy-p-324201.php", "note": "Listing date unclear"},
-        {"store": "Evetech", "item": "PNY RTX 5070 Ti", "price": 20999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-ti-price-south-africa", "note": "Evetech price guide, Aug 2026"}
+        {
+          "store": "Dreamware",
+          "item": "RTX 5070 Ti (lowest recorded)",
+          "price": 18359,
+          "url": "https://evezone.evetech.co.za/performance-pulse/is-the-rtx-5070-ti-worth-buying-in-south-africa-in-2026",
+          "note": "Lowest price in a 2026 retailer comparison"
+        },
+        {
+          "store": "Evetech",
+          "item": "RTX 5070 Ti (from)",
+          "price": 19999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-ti-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        },
+        {
+          "store": "Comx Computers",
+          "item": "MSI RTX 5070 Ti Shadow 3X OC",
+          "price": 20600,
+          "url": "https://www.comx-computers.co.za/RTX-5070-TI-16G-SHA-3X-OC-MSI-RTX-5070-Ti-Shadow-3x-Buy-p-324201.php",
+          "note": "Listing date unclear"
+        },
+        {
+          "store": "Evetech",
+          "item": "PNY RTX 5070 Ti",
+          "price": 20999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5070-ti-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        }
       ]
     },
     {
       "name": "GeForce RTX 5080 (16GB)",
       "category": "gpu-geforce",
       "listings": [
-        {"store": "Evetech", "item": "Palit RTX 5080 GamingPro", "price": 26999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa", "note": "Evetech price guide, Aug 2026; product page later showed R33,999"},
-        {"store": "Evetech", "item": "Palit RTX 5080 GamingPro OC", "price": 27999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa", "note": "Evetech price guide, Aug 2026"},
-        {"store": "tech.co.za", "item": "Gigabyte RTX 5080 Gaming", "price": 30989, "url": "https://tech.co.za/product/gigabyte-nvidia-geforce-rtx-5080-gaming-16gb-graphics-card/", "note": "Listing about 318 days old"},
-        {"store": "Evetech", "item": "ASUS ProArt RTX 5080", "price": 34999, "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa", "note": "Evetech listing"}
+        {
+          "store": "Evetech",
+          "item": "Palit RTX 5080 GamingPro",
+          "price": 26999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa",
+          "note": "Evetech price guide, Aug 2026; product page later showed R33,999"
+        },
+        {
+          "store": "Evetech",
+          "item": "Palit RTX 5080 GamingPro OC",
+          "price": 27999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa",
+          "note": "Evetech price guide, Aug 2026"
+        },
+        {
+          "store": "tech.co.za",
+          "item": "Gigabyte RTX 5080 Gaming",
+          "price": 30989,
+          "url": "https://tech.co.za/product/gigabyte-nvidia-geforce-rtx-5080-gaming-16gb-graphics-card/",
+          "note": "Listing about 318 days old"
+        },
+        {
+          "store": "Evetech",
+          "item": "ASUS ProArt RTX 5080",
+          "price": 34999,
+          "url": "https://evezone.evetech.co.za/build-lab/rtx-5080-price-south-africa",
+          "note": "Evetech listing"
+        }
       ]
     },
     {
       "name": "GeForce RTX 5090 (32GB)",
       "category": "gpu-geforce",
       "listings": [
-        {"store": "Comx Computers", "item": "MSI RTX 5090 Gaming Trio OC", "price": 56455, "url": "https://www.comx-computers.co.za/RTX5090GAMINGTRIOOC32GB-MSI-nVidia-Geforce-RTX-5090-Buy-p-319474.php", "note": "Price dated 7 Oct 2025, likely stale"},
-        {"store": "MyGaming retailer comparison", "item": "RTX 5090 (cheapest retailer)", "price": 60369, "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa", "note": "Comparison table, June 2026"},
-        {"store": "MyGaming retailer comparison", "item": "RTX 5090 (second retailer)", "price": 64999, "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa", "note": "Comparison table, June 2026"},
-        {"store": "MyGaming retailer comparison", "item": "RTX 5090 (third retailer)", "price": 64999, "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa", "note": "Comparison table, June 2026"}
+        {
+          "store": "Comx Computers",
+          "item": "MSI RTX 5090 Gaming Trio OC",
+          "price": 56455,
+          "url": "https://www.comx-computers.co.za/RTX5090GAMINGTRIOOC32GB-MSI-nVidia-Geforce-RTX-5090-Buy-p-319474.php",
+          "note": "Price dated 7 Oct 2025, likely stale"
+        },
+        {
+          "store": "MyGaming retailer comparison",
+          "item": "RTX 5090 (cheapest retailer)",
+          "price": 60369,
+          "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa",
+          "note": "Comparison table, June 2026"
+        },
+        {
+          "store": "MyGaming retailer comparison",
+          "item": "RTX 5090 (second retailer)",
+          "price": 64999,
+          "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa",
+          "note": "Comparison table, June 2026"
+        },
+        {
+          "store": "MyGaming retailer comparison",
+          "item": "RTX 5090 (third retailer)",
+          "price": 64999,
+          "url": "https://mygaming.co.za/news/features/127048-how-much-an-rtx-50-series-graphics-card-costs-in-south-africa",
+          "note": "Comparison table, June 2026"
+        }
       ]
     },
     {
       "name": "NVIDIA DGX Spark (128GB)",
       "category": "ai-mini",
       "listings": [
-        {"store": "Evetech (EveZone listing)", "item": "DGX Spark 128GB", "price": 104999, "url": "https://evezone.evetech.co.za/launch-radar/dgx-spark-64gb-local-ai-memory-guide", "note": "Listing quoted in EveZone guide"},
-        {"store": "Bob Shop (Gradagio, Johannesburg)", "item": "DGX Spark Founders Edition 128GB / 4TB", "price": 107607.50, "url": "https://www.bobshop.co.za/nvidia-dgx-spark-founders-edition-gb10-2-cortex-a725-cortex-x925-128gb-ram-4tb-ssd-mini-pc/p/677504603", "note": "Listed 24 Apr, about 213 days old"},
-        {"store": "IT Procurement", "item": "DGX Spark", "price": 135000, "url": "https://itprocurement.co.za/products/nvidia-dgx-spark", "note": "Marked sold out"},
-        {"store": "Evetech", "item": "DGX Spark GB10 Mini PC", "price": 179999, "url": "https://www.evetech.co.za/nvidia-dgx-spark-mini-pc-gb10-grace-blackwell/best-deal/25429", "note": "In stock; list price R219,999"}
+        {
+          "store": "Evetech (EveZone listing)",
+          "item": "DGX Spark 128GB",
+          "price": 104999,
+          "url": "https://evezone.evetech.co.za/launch-radar/dgx-spark-64gb-local-ai-memory-guide",
+          "note": "Listing quoted in EveZone guide"
+        },
+        {
+          "store": "Bob Shop (Gradagio, Johannesburg)",
+          "item": "DGX Spark Founders Edition 128GB / 4TB",
+          "price": 107607.5,
+          "url": "https://www.bobshop.co.za/nvidia-dgx-spark-founders-edition-gb10-2-cortex-a725-cortex-x925-128gb-ram-4tb-ssd-mini-pc/p/677504603",
+          "note": "Listed 24 Apr, about 213 days old"
+        },
+        {
+          "store": "IT Procurement",
+          "item": "DGX Spark",
+          "price": 135000,
+          "url": "https://itprocurement.co.za/products/nvidia-dgx-spark",
+          "note": "Marked sold out"
+        },
+        {
+          "store": "Evetech",
+          "item": "DGX Spark GB10 Mini PC",
+          "price": 179999,
+          "url": "https://www.evetech.co.za/nvidia-dgx-spark-mini-pc-gb10-grace-blackwell/best-deal/25429",
+          "note": "In stock; list price R219,999"
+        }
       ]
     },
     {
       "name": "Jetson Orin Nano Super Developer Kit",
       "category": "edge",
       "listings": [
-        {"store": "Bob Shop", "item": "Jetson Orin Nano Super Developer Kit", "price": 5800, "url": "https://www.bobshop.co.za/nvidia-jetson-orin-nano-super-developer-kit-development-kit/p/672551173", "note": "Marketplace listing"},
-        {"store": "RS South Africa", "item": "Jetson Orin Nano Super Developer Kit (945-13766-0005-000)", "price": 6320.70, "url": "https://za.rs-online.com/web/p/processor-development-tools/2647384", "note": "Indicative price incl. VAT (R5,496.26 excl.)"}
+        {
+          "store": "Bob Shop",
+          "item": "Jetson Orin Nano Super Developer Kit",
+          "price": 5800,
+          "url": "https://www.bobshop.co.za/nvidia-jetson-orin-nano-super-developer-kit-development-kit/p/672551173",
+          "note": "Marketplace listing"
+        },
+        {
+          "store": "RS South Africa",
+          "item": "Jetson Orin Nano Super Developer Kit (945-13766-0005-000)",
+          "price": 6320.7,
+          "url": "https://za.rs-online.com/web/p/processor-development-tools/2647384",
+          "note": "Indicative price incl. VAT (R5,496.26 excl.)"
+        }
       ]
     },
     {
@@ -66,5 +198,11 @@
       "listings": [],
       "note": "No South African rand listings found. Quote on request."
     }
-  ]
+  ],
+  "fx": {
+    "usd_zar": 16.72,
+    "source": "Wise mid-market rate",
+    "url": "https://wise.com/us/currency-converter/usd-to-zar-rate?amount=1",
+    "date": "2026-11-23"
+  }
 }
