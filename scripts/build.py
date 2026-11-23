@@ -208,8 +208,36 @@ ICONS = {
 def icon(k): return f'<span class="ic"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">{ICONS[k]}</svg></span>'
 
 # ---------------------------------------------------------------- landing page
+
+# ---------------------------------------------------------------- price guide (data/prices.json)
+def load_prices():
+    data = json.loads((ROOT / "data" / "prices.json").read_text())
+    for pr in data["products"]:
+        ls = sorted(pr["listings"], key=lambda l: l["price"])[:4]
+        pr["used"] = ls
+        pr["avg"] = round(sum(l["price"] for l in ls) / len(ls)) if ls else None
+        pr["low"] = ls[0]["price"] if ls else None
+        pr["high"] = ls[-1]["price"] if ls else None
+    return data
+
+def rand(v): return "R" + f"{v:,.0f}".replace(",", " ")
+
+def price_table(data, compact=False):
+    rows = ""
+    for pr in data["products"]:
+        if pr["avg"] is None:
+            rows += f'<tr><th scope="row">{pr["name"]}</th><td class="avg">Quote only</td><td>–</td><td>{pr.get("note","")}</td></tr>'
+            continue
+        n = len(pr["used"])
+        stores = ", ".join(dict.fromkeys(l["store"] for l in pr["used"]))
+        label = f"Avg of {n} lowest" if n == 4 else f"Avg of {n} found"
+        rows += f'<tr><th scope="row">{pr["name"]}</th><td class="avg">{rand(pr["avg"])}<small>{label}</small></td><td>{rand(pr["low"])} – {rand(pr["high"])}</td><td>{stores}</td></tr>'
+    d = data["checked"]
+    return f'''<div class="price-wrap"><table class="prices"><thead><tr><th scope="col">Product</th><th scope="col">Average price</th><th scope="col">Range used</th><th scope="col">Sources</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="note-sm">Checked {d}. {data["method"]} Store links and listing notes are in the project README.</p>'''
+
 def landing():
-    tiles = "".join(f'''<article class="tile2" id="{i}"><div class="img"><img src="{img}" alt="" loading="lazy"></div><div class="tb"><span class="lab">{lab}</span><h3>{h}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul><a class="more" href="{href}">Learn more</a></div></article>''' for i,img,lab,h,p,li,href in SOLUTIONS)
+    tiles = "".join(f'''<article class="tile2" id="sol-{i}"><div class="img"><img src="{img}" alt="" loading="lazy"></div><div class="tb"><span class="lab">{lab}</span><h3>{h}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul><a class="more" href="{href}">Learn more</a></div></article>''' for i,img,lab,h,p,li,href in SOLUTIONS)
     hw = "".join(hw_card(*x) for x in HARDWARE[:4])
     covers = "".join(f'<img src="/assets/studio/{s}/thumb-1.jpg" alt="" loading="lazy" width="360" height="450">' for s in ["the-prompt-formula","reply-to-leads-fast","carousels-that-get-saved","trigger-brain-action"])
     faqs = [
@@ -266,7 +294,8 @@ def landing():
 <section class="nv-sec" id="hardware"><div class="wrap">
   <div class="nv-head"><span class="bar"></span><span class="eyebrow">GPUs and hardware</span><h2>NVIDIA GPUs and servers, sourced in South Africa.</h2><p class="lede">Tell us the workload. We spec the hardware, compare local suppliers, quote you in writing, then deliver, install and configure it.</p></div>
   <div class="hw-row">{hw}</div>
-  <p style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap"><a class="nv-btn line" href="/hardware">View all hardware</a><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a></p>
+  <div class="chips-row">{"".join(f'<span class="pchip"><b>{p["name"].split(" (")[0]}</b>{rand(p["avg"])} avg</span>' for p in load_prices()["products"] if p["avg"])}</div>
+  <p style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap"><a class="nv-btn line" href="/hardware#prices">See the price guide</a><a class="nv-btn line" href="/hardware">View all hardware</a><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a></p>
   <p class="note-sm">Illustrations are representative. Model availability changes often; we confirm current models, prices and warranty with each quote.</p>
 </div></section>
 
@@ -351,7 +380,11 @@ def hardware_page():
   <div class="hw-row">{cards}</div>
   <p class="note-sm">Illustrations are representative, not photos of specific products. NVIDIA, GeForce, RTX, DGX and Jetson are trademarks of NVIDIA Corporation. Karl Agentic is an independent consultancy and is not affiliated with NVIDIA. Current models, prices, stock and warranty are confirmed in writing with each quote.</p>
 </div></section>
-<section class="nv-sec alt"><div class="wrap">
+<section class="nv-sec alt" id="prices"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">South African price guide</span><h2>What these GPUs cost locally.</h2><p class="lede">The average of the four lowest prices we found at South African stores. Your quote uses live supplier pricing on the day.</p></div>
+  {price_table(load_prices())}
+</div></section>
+<section class="nv-sec"><div class="wrap">
   <div class="nv-head"><span class="bar"></span><span class="eyebrow">How sourcing works</span><h2>From workload to working machine.</h2></div>
   <div class="steps4"><div><b>01</b><h3>Workload</h3><p>Tell us what you'll run: rendering, video, local AI, servers or edge devices.</p></div><div><b>02</b><h3>Spec and compare</h3><p>We recommend a configuration and compare prices from South African suppliers.</p></div><div><b>03</b><h3>Quote</h3><p>A written quote with model, price, warranty and delivery time.</p></div><div><b>04</b><h3>Install</h3><p>Delivery, installation, drivers, CUDA, Docker and your software stack.</p></div></div>
 </div></section>
@@ -454,6 +487,30 @@ def studio_page():
 {footer()}'''
     return head("Studio | Karl Agentic", "Download ready-made 5-slide Instagram carousels with captions: AI agents, automation, design, 3D, web and marketing.", "/studio", "/assets/studio/what-is-an-ai-agent/what-is-an-ai-agent-1.jpg") + body
 
+
+def write_readme_sources(data):
+    lines = [f"Checked {data['checked']}. {data['method']}", ""]
+    stores = {}
+    for pr in data["products"]:
+        if not pr["used"]:
+            lines += [f"### {pr['name']}", "", pr.get("note", ""), ""]
+            continue
+        lines += [f"### {pr['name']}: average {rand(pr['avg'])}", "", "| Store | Item | Price | Note |", "|---|---|---|---|"]
+        for l in pr["used"]:
+            lines.append(f"| [{l['store']}]({l['url']}) | {l['item']} | {rand(l['price'])} | {l['note']} |")
+            stores.setdefault(l["store"], l["url"].split("/")[2])
+        lines.append("")
+    lines += ["### All stores and websites used", ""] + [f"- **{k}**: {v}" for k, v in stores.items()] + [""]
+    md = "\n".join(lines)
+    rp = ROOT / "README.md"; t = rp.read_text()
+    start, end = "<!-- prices:start -->", "<!-- prices:end -->"
+    block = f"{start}\n{md}\n{end}"
+    if start in t:
+        t = t[:t.index(start)] + block + t[t.index(end) + len(end):]
+    else:
+        t += "\n## South African price guide and store locations\n\nGenerated from `data/prices.json` by `scripts/build.py`. To refresh, ask Claude Code to re-check the prices with web search, update the JSON, and rebuild.\n\n" + block + "\n"
+    rp.write_text(t)
+
 def sitemap():
     urls = ["/", "/hardware", "/academy", "/studio", "/brand"] + [f'/academy/{s["slug"]}' for s in SERIES]
     rows = "".join(f"<url><loc>{CONFIG['site_url']}{u}</loc></url>" for u in urls)
@@ -471,5 +528,6 @@ if __name__ == "__main__":
     (ROOT / "studio").mkdir(exist_ok=True)
     (ROOT / "studio" / "index.html").write_text(studio_page())
     (ROOT / "sitemap.xml").write_text(sitemap())
+    write_readme_sources(load_prices())
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {CONFIG['site_url']}/sitemap.xml\n")
     print("built", 5 + len(SERIES), "pages")

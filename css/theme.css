@@ -137,3 +137,15 @@
 }
 .nv .ticks li::before{background-color:var(--k-pink)}
 .nv .chat{background:#111114;border:1px solid var(--k-line)}
+.price-wrap{overflow-x:auto;border:1px solid var(--k-line)}
+.prices{width:100%;border-collapse:collapse;min-width:640px;font-size:.95rem}
+.prices th,.prices td{padding:1rem 1.1rem;text-align:left;border-bottom:1px solid var(--k-line);vertical-align:top}
+.prices thead th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k-grey);background:#0d0d0f}
+.prices tbody th{font-weight:700;color:#fff}
+.prices td{color:var(--k-light);font-variant-numeric:tabular-nums}
+.prices td.avg{color:var(--k-pink);font-weight:800;font-size:1.15rem;white-space:nowrap}
+.prices td.avg small{display:block;font-size:.7rem;font-weight:600;color:var(--k-grey);letter-spacing:.04em}
+.chips-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.pchip{display:inline-flex;gap:.5rem;align-items:baseline;border:1px solid var(--k-line);padding:.45rem .8rem;font-size:.85rem;color:var(--k-pink);font-weight:700;font-variant-numeric:tabular-nums}
+.pchip b{color:#fff;font-weight:600}
+.prices td:nth-child(3){white-space:nowrap}
