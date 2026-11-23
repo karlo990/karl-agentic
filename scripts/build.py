@@ -138,10 +138,10 @@ def head(title, desc, path, image="/assets/brand/og-image.jpg"):
 <meta property="og:type" content="website"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{CONFIG["site_url"]}{image}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B1530">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/logo/favicon-32.png"><link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
 {FONTS}
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/theme.css">
 </head><body>'''
 
 def header(active=""):
@@ -149,25 +149,55 @@ def header(active=""):
         cur = ' aria-current="page"' if key == active else ""
         return f'<a href="{href}"{cur}>{label}</a>'
     return f'''<header class="site-head"><div class="wrap">
-  <a class="brand" href="/" aria-label="Karl Agentic home"><img src="/assets/logo/logo-mark-transparent.png" alt="" width="34" height="34"><b>Karl</b><span>Agentic</span></a>
+  <a class="brand" href="/" aria-label="Karl Agentic home"><img src="/assets/logo/pink-tile-64.png" alt="" width="36" height="36"><span class="wm"><b>KARL</b> <i>AGENTIC</i></span></a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-  <nav class="nav" id="nav">{a("/#agents","Agents","agents")}{a("/#how","How it works","how")}{a("/#work","Work","work")}{a("/academy","Academy","academy")}{a("/studio","Studio","studio")}{a("/brand","Brand","brand")}
-    <a class="btn btn-pink" href="{WA}" target="_blank" rel="noopener">Book a demo</a></nav>
+  <nav class="nav" id="nav">{a("/#solutions","Solutions","solutions")}{a("/hardware","Hardware","hardware")}{a("/studio","Studio","studio")}{a("/academy","Academy","academy")}{a("/#work","Work","work")}
+    <a class="btn btn-pink" href="{WA}" target="_blank" rel="noopener">Get a quote</a></nav>
 </div></header>'''
 
 def footer():
     s = "".join(f'<a href="/academy/{x["slug"]}">{x["title"]}</a>' for x in SERIES[:5])
     return f'''<footer class="site-foot"><div class="wrap">
-  <div><a class="brand" href="/" style="color:#fff"><img src="/assets/logo/logo-mark-transparent.png" alt="" width="34" height="34"><b>Karl</b><span>Agentic</span></a>
-    <p style="margin-top:.9rem;max-width:34ch">Verified AI agents for real businesses. Booking, marketing, sales and operations.</p></div>
-  <div><h4>Company</h4><a href="/#agents">Agents</a><a href="/#how">How it works</a><a href="/#work">Work</a><a href="/#faq">FAQ</a><a href="/studio">Studio</a><a href="/brand">Brand kit</a></div>
-  <div><h4>Academy</h4>{s}<a href="/academy">All series →</a></div>
+  <div><a class="brand" href="/" style="color:#fff"><img src="/assets/logo/pink-tile-64.png" alt="" width="36" height="36"><span class="wm"><b>KARL</b> <i>AGENTIC</i></span></a>
+    <p style="margin-top:.9rem;max-width:36ch">Tech consulting, AI agents, automation, GPU infrastructure and creative production.</p></div>
+  <div><h4>Solutions</h4><a href="/#agents">AI agents and bots</a><a href="/#social">Social media automation</a><a href="/#servers">Servers and setup</a><a href="/hardware">GPUs and hardware</a><a href="/#creative">Rendering and video</a></div>
+  <div><h4>Resources</h4><a href="/studio">Studio</a><a href="/academy">Academy</a>{s}<a href="/brand">Brand kit</a></div>
   <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="{CONFIG["instagram"]}" target="_blank" rel="noopener">Instagram {CONFIG["instagram_handle"]}</a><span style="user-select:all">{CONFIG["email"]}</span></div>
-  <div class="legal"><span>© 2026 Karl Agentic. Part of the KarlCon family.</span><span>Built with HTML, hosted on Vercel.</span></div>
+  <p class="tm">NVIDIA, GeForce, RTX, DGX and Jetson are trademarks of NVIDIA Corporation. Other product names are trademarks of their owners. Karl Agentic is an independent consultancy and is not affiliated with or endorsed by NVIDIA. Hardware images on this site are our own illustrations. Prices, stock and warranty terms are confirmed in writing with each quote.</p>
+  <div class="legal"><span>© 2026 Karl Agentic. Part of the KarlCon family.</span><span>Hosted on Vercel.</span></div>
 </div></footer>
 <div class="toast" id="toast" role="status"></div>
 <script src="/js/site.js" defer></script>
 </body></html>'''
+
+HARDWARE = [
+ ("gpu-geforce","GeForce RTX 50 Series","RTX 5090 · 5080 · 5070 Ti · 5070","Fast rendering, video editing, local AI models and creative workstations."),
+ ("gpu-workstation","RTX PRO workstation GPUs","RTX PRO Blackwell family","Large memory and certified drivers for pro rendering, CAD and AI development."),
+ ("workstation","Custom AI workstations","1–4 GPUs · built and tested","Towers specced to your workload, assembled, stress-tested and delivered."),
+ ("ai-mini","Desktop AI systems","e.g. NVIDIA DGX Spark","Run and fine-tune large models on your desk, with no data leaving the office."),
+ ("server-2u","GPU servers","2U / 4U · 4–8 GPUs","Rack servers for private AI, inference, render farms and virtual desktops."),
+ ("gpu-datacenter","Data-centre GPUs","H200 · Blackwell-class via OEM servers","Large-scale training and inference for enterprises and research teams."),
+ ("edge","Edge AI","Jetson Orin · Jetson Thor","On-site AI for cameras, retail analytics, robotics and smart devices."),
+ ("network","Networking and storage","Switches · NAS · UPS · racks","Everything around the GPUs: fast networks, safe storage and backup power."),
+]
+
+def hw_card(k, name, ex, desc, quote=True):
+    q = html.escape(f"Hi Karl Agentic, I'd like a quote for: {name}.").replace(" ", "%20")
+    link = f'<a class="more" href="{CONFIG["whatsapp"]}?text={q}" target="_blank" rel="noopener">Request a quote</a>' if quote else '<a class="more" href="/hardware">See options</a>'
+    return f'<article class="hw"><img src="/assets/hw/{k}.jpg" alt="Illustration: {html.escape(name)}" loading="lazy" width="1200" height="800"><div class="tb"><span class="ex">{ex}</span><h3>{name}</h3><p>{desc}</p>{link}</div></article>'
+
+SOLUTIONS = [
+ ("agents","/assets/studio/what-is-an-ai-agent/thumb-1.jpg","AI agents and bots","Agents that answer, book and follow up.","WhatsApp, Instagram, Telegram and web-chat bots connected to your calendar, CRM and payments.",["Booking and front-desk agents","Lead follow-up and sales bots","Human hand-over rules you approve"],"/#agents"),
+ ("social","/assets/studio/comment-to-dm/thumb-1.jpg","Social media automation","Content that runs on a system.","Content pipelines, scheduling, comment-to-DM funnels and branded carousels produced from templates.",["Comment-to-DM keyword funnels","Template-driven carousels and Reels","Weekly performance reports"],"/studio"),
+ ("servers","/assets/hw/server-2u.jpg","Server installation and configuration","Your own AI and automation servers.","We install, configure and secure Linux servers and GPU machines, on-site or in the cloud.",["Ubuntu Server, Docker, NVIDIA drivers and CUDA","Private LLMs and self-hosted n8n","Backups, monitoring and remote access"],"/#servers"),
+ ("hardware","/assets/hw/gpu-geforce.jpg","GPUs and hardware sourcing","NVIDIA GPUs and servers, sourced locally.","We spec the right hardware, compare South African suppliers, deliver and install it.",["GeForce RTX and RTX PRO GPUs","AI workstations and GPU servers","Networking, storage and UPS"],"/hardware"),
+ ("rendering","/assets/carousel/02-blender.jpg","3D rendering and visualisation","Product shots without a studio.","Blender product renders, 3D logos, architectural visuals and render setups on GPU machines.",["Product and packaging renders","3D brand assets and icons","GPU render workstations"],"/#creative"),
+ ("video","/assets/studio/captions-on-every-reel/thumb-1.jpg","Video production and motion","Reels, ads and motion graphics.","Editing, captions, animated logos and AI-assisted video, cut for each platform.",["Reels, Shorts and TikToks","Animated logos and motion graphics","Auto-captioned, on-brand edits"],"/#creative"),
+ ("design","/assets/studio/60-30-10-colour/thumb-1.jpg","Graphic design and branding","Brands that look the same everywhere.","Brand kits, logos, carousels, posters and templates your team can reuse.",["Logos and brand kits","Social templates and carousels","Print and signage files"],"/brand"),
+ ("web","/assets/studio/websites-that-book/thumb-1.jpg","Websites and web apps","Sites that turn visitors into bookings.","Fast websites and small web apps, deployed on Vercel and connected to WhatsApp and your tools.",["Landing pages and business sites","Booking and lead forms","Dashboards and internal tools"],"/#solutions"),
+ ("consulting","/assets/studio/which-ai-should-i-use/thumb-1.jpg","Tech consulting","A clear plan before you spend.","AI readiness, tool selection, hardware vs cloud costs and a step-by-step roadmap for your team.",["AI and automation audit","Hardware vs cloud cost plan","Team training and handover"],"/#contact"),
+]
+
 
 ICONS = {
  "book":'<rect x="4" y="6" width="24" height="22" rx="5" fill="none" stroke="#1D8BF7" stroke-width="3"/><path d="M4 13h24M11 3v6M21 3v6" stroke="#1D8BF7" stroke-width="3" stroke-linecap="round"/><path d="M11 20l3.5 3.5L21 17" fill="none" stroke="#F0287A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -179,90 +209,156 @@ def icon(k): return f'<span class="ic"><svg width="30" height="30" viewBox="0 0 
 
 # ---------------------------------------------------------------- landing page
 def landing():
-    covers = "".join(f'<a class="cover" href="/academy/{s["slug"]}"><img src="/assets/covers/{s["cover"]}.jpg" alt="{s["pre"]} {s["title"]} {s["part"]} cover" loading="lazy" width="720" height="900"><span class="lab">{s["title"]}<span>{s["tag"].upper()}</span></span></a>' for s in SERIES)
+    tiles = "".join(f'''<article class="tile2" id="{i}"><div class="img"><img src="{img}" alt="" loading="lazy"></div><div class="tb"><span class="lab">{lab}</span><h3>{h}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul><a class="more" href="{href}">Learn more</a></div></article>''' for i,img,lab,h,p,li,href in SOLUTIONS)
+    hw = "".join(hw_card(*x) for x in HARDWARE[:4])
+    covers = "".join(f'<img src="/assets/studio/{s}/thumb-1.jpg" alt="" loading="lazy" width="360" height="450">' for s in ["the-prompt-formula","reply-to-leads-fast","carousels-that-get-saved","trigger-brain-action"])
     faqs = [
-      ("What is an AI agent?","Software that understands messages, makes decisions and takes actions, such as replying to a customer, checking your calendar and confirming a booking. A chatbot only talks. An agent does the work."),
-      ("Will it replace my staff?","No. It handles the repetitive first steps, like answering the same questions and collecting details, so your team spends time on guests and sales instead of typing."),
-      ("Do I stay in control?","Yes. You approve the agent's tone, rules and answers before it goes live, and you can require a person to approve sensitive replies such as discounts or refunds."),
-      ("Which channels do you support?","WhatsApp is our main channel, plus website chat, email, Instagram DMs and Google Calendar. We connect to the tools you already use where they have an API."),
-      ("How long does it take?","A focused first agent, such as a booking assistant, is usually live in about two weeks after the discovery call."),
-      ("How much does it cost?","Every business is different, so we quote after a free demo. You get a fixed setup price and a monthly running fee, with no surprises."),
+      ("What does Karl Agentic do?","We're a tech consultancy and creative studio. We build AI agents and bots, automate social media and admin, install and configure servers, source GPUs and hardware, and produce renders, video and design."),
+      ("Do you sell NVIDIA hardware?","We source NVIDIA GPUs, workstations and servers from suppliers in South Africa, compare prices for you, then deliver, install and configure them. We are an independent consultancy, not an NVIDIA partner or reseller of record."),
+      ("What about warranty and delivery?","Hardware comes with the supplier's or manufacturer's warranty. We confirm warranty, delivery time and price in writing with every quote, because stock changes quickly."),
+      ("Can you host AI privately, without sending data to the cloud?","Yes. We can set up local models on your own GPU machine or server, so documents and customer data stay on your network."),
+      ("Do I need hardware to use AI agents?","No. Most agents and automations run in the cloud. Hardware makes sense for private AI, heavy rendering or high volumes. We'll tell you honestly which fits."),
+      ("How do we start?","Send us a WhatsApp message. We book a free call, understand your goals and send a written proposal and quote."),
     ]
     faq = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q,a in faqs)
-    body = f'''{header()}
-<main>
-<section class="hero"><div class="wrap">
+    body = f'''{header("solutions")}
+<main class="nv">
+<section class="nv-hero"><div class="wrap">
   <div>
-    <span class="eyebrow">AI agents for real businesses</span>
-    <h1>Hire agents that <em class="serif">actually do the work.</em></h1>
-    <p class="lede">We design, install and run AI agents that answer customers, book appointments, run your marketing and chase every lead. Tested, approved by you, and working 24/7.</p>
-    <div class="ctas"><a class="btn btn-pink" href="{WA}" target="_blank" rel="noopener">Book a free demo →</a><a class="btn btn-ghost" href="#work">See a live example</a></div>
-    <div class="proof"><span>✔ VERIFIED BEFORE LAUNCH</span><span>✔ YOU APPROVE EVERY RULE</span><span>✔ WHATSAPP-FIRST</span></div>
+    <span class="eyebrow">Tech consulting · AI agents · GPU infrastructure · Creative</span>
+    <h1>Intelligent agents.<br>Powerful hardware.<br><span>Work that ships.</span></h1>
+    <p class="lede">Karl Agentic builds AI agents and automated bots, installs and configures servers, sources NVIDIA GPUs locally, and produces the renders, video and design that make brands stand out.</p>
+    <div class="ctas"><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Get a quote</a><a class="nv-btn line" href="#solutions">Explore solutions</a></div>
   </div>
-  <div class="hero-art">
-    <img src="/assets/brand/karl-agentic-hero.jpg" alt="Karl Agentic logo: a verified seal with a cursor clicking the word Agentic" width="1200" height="1200" fetchpriority="high">
-    <div class="float f1"><span class="dot"></span><span>Booked: table for 4<small>Fri 19:30 · example</small></span></div>
-    <div class="float f2"><span class="dot" style="background:#1D8BF7;box-shadow:0 0 0 4px rgba(29,139,247,.18)"></span><span>12 leads replied<small>in under a minute · example</small></span></div>
-  </div>
+  <div class="logo-card"><img src="/assets/brand/karl-agentic-hero.jpg" alt="Karl Agentic logo" width="1200" height="1200" fetchpriority="high"></div>
 </div></section>
 
-<section class="block" id="agents"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Four agent lines</span><h2>One team of agents, <em class="serif">four jobs.</em></h2><p class="lede">Start with one agent, then add more as you grow. Every agent shares the same memory of your business.</p></div>
-  <div class="grid-4">
-    <article class="card">{icon("book")}<span class="code">KA-BOOK</span><h3>Booking agents</h3><p>Answer WhatsApp, web chat and calls. Check availability, take details and confirm bookings.</p></article>
-    <article class="card">{icon("reach")}<span class="code">KA-REACH</span><h3>Marketing agents</h3><p>Plan posts, write captions, run email campaigns and send you a weekly report on what worked.</p></article>
-    <article class="card">{icon("close")}<span class="code">KA-CLOSE</span><h3>Sales agents</h3><p>Reply to every lead in under a minute, qualify them, follow up and put warm deals in your calendar.</p></article>
-    <article class="card">{icon("ops")}<span class="code">KA-OPS</span><h3>Operations agents</h3><p>Invoices, reminders, reports and admin: the repetitive work that eats your team's week.</p></article>
-  </div>
+<nav class="tabs" aria-label="Sections"><div class="wrap">
+  <a href="#solutions">All solutions</a><a href="#agents">AI agents</a><a href="#social">Social automation</a><a href="#servers">Servers</a><a href="#hardware">GPUs and hardware</a><a href="#creative">Rendering and video</a><a href="#work">Work</a><a href="#faq">FAQ</a>
+</div></nav>
+
+<section class="nv-sec" id="solutions"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">Solutions</span><h2>Nine ways we put technology to work for you.</h2><p class="lede">One team for strategy, build and creative, so your agents, servers and content work together instead of in separate silos.</p></div>
+  <div class="tiles">{tiles}</div>
 </div></section>
 
-<section class="block" id="how" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">How it works</span><h2>From first call to <em class="serif">live agent.</em></h2></div>
-  <div class="steps">
-    <div class="step"><span class="n">01 · DISCOVER</span><h3>Free demo call</h3><p>We map the questions you answer every day and where time is lost.</p></div>
-    <div class="step"><span class="n">02 · BUILD</span><h3>We build it</h3><p>Your agent is trained on your prices, policies and tone, and connected to your tools.</p></div>
-    <div class="step"><span class="n">03 · VERIFY</span><h3>You approve it</h3><p>You test it, change the rules and sign off. Nothing goes live without your OK.</p></div>
-    <div class="step"><span class="n">04 · RUN</span><h3>It works 24/7</h3><p>We monitor it, improve it every month and report what it handled.</p></div>
+<section class="nv-sec alt" id="servers"><div class="wrap split">
+  <div>
+    <div class="nv-head" style="margin-bottom:0"><span class="bar"></span><span class="eyebrow">Server installation and configuration</span><h2>From bare metal to running AI in a day.</h2>
+    <p class="lede">We install and harden the operating system, set up GPU drivers, containers and your automation stack, then hand over documentation and remote support.</p></div>
+    <ul class="checks"><li>Ubuntu Server and security hardening</li><li>NVIDIA drivers, CUDA and container toolkit</li><li>Docker and Docker Compose stacks</li><li>Private LLMs with Ollama or vLLM</li><li>Self-hosted n8n automations</li><li>Backups, monitoring and alerts</li><li>VPN and secure remote access</li><li>Documentation and handover</li></ul>
+    <p style="margin-top:1.8rem"><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Book a server setup</a></p>
   </div>
+  <div class="term" role="img" aria-label="Example terminal session on a GPU server"><div class="bar"><span><i></i><i></i><i></i></span><span>EXAMPLE SETUP · gpu-01</span></div>
+<pre><span class="p">karl@gpu-01</span>:~$ nvidia-smi --query-gpu=name,memory.total --format=csv
+<span class="dim">name, memory.total [MiB]</span>
+<span class="dim">NVIDIA GeForce RTX (example), 32768 MiB</span>
+<span class="p">karl@gpu-01</span>:~$ docker compose up -d
+ <span class="ok">✔</span> Container ollama       Started
+ <span class="ok">✔</span> Container n8n          Started
+ <span class="ok">✔</span> Container open-webui   Started
+ <span class="ok">✔</span> Container backups      Started
+<span class="p">karl@gpu-01</span>:~$ curl -s localhost:5678/healthz
+<span class="ok">{{"status":"ok"}}</span>
+<span class="p">karl@gpu-01</span>:~$ <span class="dim"># private AI + automations are live</span></pre></div>
 </div></section>
 
-<section class="block" id="work" style="padding-top:0"><div class="wrap">
-  <div class="case">
-    <div>
-      <span class="eyebrow">Client work · Royal Crest</span>
-      <h2 style="margin:.6rem 0 1rem;font-size:clamp(1.7rem,3.2vw,2.5rem)">A WhatsApp concierge for a <em class="serif">luxury brand.</em></h2>
-      <p class="lede">We built Royal Crest a booking assistant that talks to guests on WhatsApp, understands what they're asking for and keeps the conversation moving toward a confirmed booking.</p>
-      <ul class="ticks"><li>Replies instantly, day and night</li><li>Answers questions from the business's own information</li><li>Collects dates, guests and preferences before handing over</li><li>Escalates anything sensitive to a real person</li></ul>
-    </div>
-    <div class="chat" aria-label="Example conversation"><span class="eyebrow" style="color:#8EC9FF">Example conversation</span>
+<section class="nv-sec" id="hardware"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">GPUs and hardware</span><h2>NVIDIA GPUs and servers, sourced in South Africa.</h2><p class="lede">Tell us the workload. We spec the hardware, compare local suppliers, quote you in writing, then deliver, install and configure it.</p></div>
+  <div class="hw-row">{hw}</div>
+  <p style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap"><a class="nv-btn line" href="/hardware">View all hardware</a><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a></p>
+  <p class="note-sm">Illustrations are representative. Model availability changes often; we confirm current models, prices and warranty with each quote.</p>
+</div></section>
+
+<section class="nv-sec alt" id="agents"><div class="wrap split">
+  <div class="nv-head" style="margin-bottom:0"><span class="bar"></span><span class="eyebrow">AI agents and automated bots</span><h2>Agents that answer, book and follow up, 24/7.</h2>
+    <p class="lede">Your agent reads WhatsApp, Instagram and web-chat messages, understands what people want and acts in your tools. You approve the rules; anything sensitive goes to a person.</p>
+    <ul class="checks"><li>Booking and front-desk agents</li><li>Lead qualification and follow-up</li><li>Invoice and payment reminders</li><li>Review replies for approval</li></ul></div>
+  <div class="chat" aria-label="Example conversation"><span class="eyebrow" style="color:#8EC9FF">Example conversation</span>
       <div class="bub in">Hi, do you have availability for 2 adults next weekend?<span class="t">GUEST · 21:14</span></div>
-      <div class="bub out">Good evening! Yes, we have availability on Friday and Saturday. Would you like the garden suite or the classic room? I can share prices for both. 🌿<span class="t">KARL AGENT · 21:14</span></div>
+      <div class="bub out" style="background:#F0287A">Good evening! Yes, Friday and Saturday are open. Would you like the garden suite or the classic room? 🌿<span class="t">KARL AGENT · 21:14</span></div>
       <div class="bub in">Garden suite please, Friday to Sunday.<span class="t">GUEST · 21:15</span></div>
-      <div class="bub out">Lovely choice. I've noted 2 adults, garden suite, Friday to Sunday. May I have your full name to prepare the booking?<span class="t">KARL AGENT · 21:15</span></div>
+      <div class="bub out" style="background:#F0287A">Lovely. I've noted 2 adults, garden suite, Friday to Sunday. May I have your full name to prepare the booking?<span class="t">KARL AGENT · 21:15</span></div></div>
+</div></section>
+
+<section class="nv-sec" id="social"><div class="wrap split">
+  <div class="gallery">{covers}</div>
+  <div class="nv-head" style="margin-bottom:0"><span class="bar"></span><span class="eyebrow">Social media automation</span><h2>A content engine, not a posting chore.</h2>
+    <p class="lede">We build template systems that turn one idea into a 5-slide carousel, a caption and a comment-to-DM funnel. Our own Studio produced 30 posts this way.</p>
+    <ul class="checks"><li>Branded carousel templates</li><li>Captions and hashtags generated</li><li>Comment-to-DM keyword funnels</li><li>Scheduling and weekly reports</li></ul>
+    <p style="margin-top:1.6rem"><a class="more" href="/studio">See the Studio</a></p></div>
+</div></section>
+
+<section class="nv-sec alt" id="creative"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">Rendering, video and design</span><h2>Creative production, powered by GPUs.</h2><p class="lede">3D renders in Blender, Reels and motion graphics, and brand design, all produced on the same GPU workflows we install for clients.</p></div>
+  <div class="split">
+    <div class="timeline" role="img" aria-label="Video editing timeline example">
+      <div class="ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span></div>
+      <div class="track"><span>TEXT</span><div class="lane"><span class="clip" style="left:4%;width:30%;background:#7B2BFF">Hook: “Your front desk…”</span><span class="clip" style="left:52%;width:40%;background:#7B2BFF">Comment AGENT</span><div class="playhead"></div></div></div>
+      <div class="track"><span>V2</span><div class="lane"><span class="clip" style="left:18%;width:44%;background:#F0287A">3D cursor render.mp4</span></div></div>
+      <div class="track"><span>V1</span><div class="lane"><span class="clip" style="left:0;width:36%;background:#2b5bff">Studio B-roll</span><span class="clip" style="left:37%;width:33%;background:#1D8BF7">Product shot</span><span class="clip" style="left:71%;width:29%;background:#0A5CE0">Logo sting</span></div></div>
+      <div class="track"><span>A1</span><div class="lane"><div class="wave"></div></div></div>
+      <div class="track"><span>CC</span><div class="lane"><span class="clip" style="left:4%;width:88%;background:#2c2c31">Auto captions · 2 lines · bold</span></div></div>
+    </div>
+    <div class="tiles" style="grid-template-columns:1fr 1fr">
+      <article class="tile2"><div class="img"><img src="/assets/brand/pink-cursor-arrow.jpg" alt="" loading="lazy"></div><div class="tb"><span class="lab">3D and motion</span><h3>Renders and animated logos</h3></div></article>
+      <article class="tile2"><div class="img"><img src="/assets/carousel/04-graphic-design.jpg" alt="" loading="lazy"></div><div class="tb"><span class="lab">Design</span><h3>Brand kits and campaigns</h3></div></article>
     </div>
   </div>
 </div></section>
 
-<section class="block dark" id="academy"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Karl Agentic Academy</span><h2>Learn the tools <em class="serif">behind the agents.</em></h2><p class="lede">The full guides behind our Instagram series: 3D, design, automation, code and AI. Free, practical, and updated as we post.</p></div>
-  <div class="covers">{covers}</div>
-  <p style="margin-top:2rem"><a class="btn btn-ghost" href="/academy">Open the Academy →</a></p>
+<section class="nv-sec" id="how"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">How we work</span><h2>Consult. Build. Deploy. Support.</h2></div>
+  <div class="steps4"><div><b>01</b><h3>Consult</h3><p>A free call to understand your goals, budget and current tools.</p></div><div><b>02</b><h3>Build</h3><p>We spec hardware, build agents and automations, and design the creative.</p></div><div><b>03</b><h3>Deploy</h3><p>Install, configure and test with you. Nothing goes live without your OK.</p></div><div><b>04</b><h3>Support</h3><p>Monitoring, monthly improvements and a team you can WhatsApp.</p></div></div>
 </div></section>
 
-<section class="block" id="faq"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Questions owners <em class="serif">ask us.</em></h2></div>
+<section class="nv-sec alt" id="work"><div class="wrap">
+  <div class="case">
+    <div><span class="eyebrow">Client work · Royal Crest</span>
+      <h2 style="margin:.6rem 0 1rem;font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800">A WhatsApp concierge for a luxury brand.</h2>
+      <p class="lede">We built Royal Crest a booking assistant that talks to guests on WhatsApp, understands what they're asking for and keeps the conversation moving toward a confirmed booking.</p>
+      <ul class="ticks"><li>Replies instantly, day and night</li><li>Answers from the business's own information</li><li>Collects dates, guests and preferences</li><li>Escalates anything sensitive to a person</li></ul></div>
+    <div><img src="/assets/studio/ai-front-desk/thumb-1.jpg" alt="" loading="lazy" style="width:100%;max-width:420px;margin-inline:auto"></div>
+  </div>
+</div></section>
+
+<section class="nv-sec" id="faq"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">FAQ</span><h2>Questions clients ask us.</h2></div>
   <div class="faq">{faq}</div>
 </div></section>
 
-<section class="block" style="padding-top:0"><div class="wrap">
-  <div class="cta-band">
-    <div><h2>Your front desk never sleeps. Neither does your agent.</h2><p>Book a free 15-minute demo. We'll show you an agent built around your business before you spend anything.</p><p class="contact-line">{CONFIG["email"]}</p></div>
-    <a class="btn btn-light" href="{WA}" target="_blank" rel="noopener">Chat on WhatsApp →</a>
-  </div>
+<section class="cta-nv" id="contact"><div class="wrap">
+  <div><h2>Let's build your agents, servers and content.</h2><p>Free 15-minute call. Tell us what you want to automate, render or run, and we'll send a written plan and quote.</p><p class="contact-line">{CONFIG["email"]}</p></div>
+  <a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Chat on WhatsApp</a>
 </div></section>
 </main>
 {footer()}'''
-    return head("Karl Agentic | AI agents that do the work", "Karl Agentic designs, installs and runs verified AI agents for businesses: booking, marketing, sales and operations, on WhatsApp and the web.", "/") + body
+    return head("Karl Agentic | AI agents, GPU servers and creative tech", "Tech consulting from Karl Agentic: AI agents and bots, social media automation, server installation, NVIDIA GPUs sourced in South Africa, 3D rendering, video and design.", "/") + body
+
+def hardware_page():
+    cards = "".join(hw_card(*x) for x in HARDWARE)
+    body = f'''{header("hardware")}
+<main class="nv">
+<section class="nv-hero"><div class="wrap">
+  <div><span class="eyebrow">GPUs · Workstations · Servers · Edge AI</span>
+    <h1>Hardware for AI,<br>rendering and <span>video.</span></h1>
+    <p class="lede">We source NVIDIA GPUs, AI workstations and GPU servers from suppliers in South Africa, then deliver, install and configure them for your workload.</p>
+    <div class="ctas"><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Request a quote</a><a class="nv-btn line" href="#catalogue">Browse categories</a></div></div>
+  <div class="logo-card"><img src="/assets/hw/rack.jpg" alt="Illustration of a GPU server rack" width="1200" height="800"></div>
+</div></section>
+<section class="nv-sec" id="catalogue"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">Categories</span><h2>Pick a starting point. We'll spec the rest.</h2></div>
+  <div class="hw-row">{cards}</div>
+  <p class="note-sm">Illustrations are representative, not photos of specific products. NVIDIA, GeForce, RTX, DGX and Jetson are trademarks of NVIDIA Corporation. Karl Agentic is an independent consultancy and is not affiliated with NVIDIA. Current models, prices, stock and warranty are confirmed in writing with each quote.</p>
+</div></section>
+<section class="nv-sec alt"><div class="wrap">
+  <div class="nv-head"><span class="bar"></span><span class="eyebrow">How sourcing works</span><h2>From workload to working machine.</h2></div>
+  <div class="steps4"><div><b>01</b><h3>Workload</h3><p>Tell us what you'll run: rendering, video, local AI, servers or edge devices.</p></div><div><b>02</b><h3>Spec and compare</h3><p>We recommend a configuration and compare prices from South African suppliers.</p></div><div><b>03</b><h3>Quote</h3><p>A written quote with model, price, warranty and delivery time.</p></div><div><b>04</b><h3>Install</h3><p>Delivery, installation, drivers, CUDA, Docker and your software stack.</p></div></div>
+</div></section>
+<section class="cta-nv"><div class="wrap"><div><h2>Not sure what you need?</h2><p>Send us your workload and budget. We'll recommend the right GPU or server, or tell you if the cloud is the better deal.</p></div><a class="nv-btn solid" href="{WA}" target="_blank" rel="noopener">Ask on WhatsApp</a></div></section>
+</main>
+{footer()}'''
+    return head("Hardware | Karl Agentic", "NVIDIA GPUs, AI workstations, GPU servers and edge AI hardware sourced in South Africa, delivered, installed and configured by Karl Agentic.", "/hardware", "/assets/hw/rack.jpg") + body
 
 # ---------------------------------------------------------------- academy pages
 def item_html(i, it):
@@ -359,7 +455,7 @@ def studio_page():
     return head("Studio | Karl Agentic", "Download ready-made 5-slide Instagram carousels with captions: AI agents, automation, design, 3D, web and marketing.", "/studio", "/assets/studio/what-is-an-ai-agent/what-is-an-ai-agent-1.jpg") + body
 
 def sitemap():
-    urls = ["/", "/academy", "/studio", "/brand"] + [f'/academy/{s["slug"]}' for s in SERIES]
+    urls = ["/", "/hardware", "/academy", "/studio", "/brand"] + [f'/academy/{s["slug"]}' for s in SERIES]
     rows = "".join(f"<url><loc>{CONFIG['site_url']}{u}</loc></url>" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
 
@@ -370,8 +466,10 @@ if __name__ == "__main__":
     for s in SERIES:
         (ROOT / "academy" / f'{s["slug"]}.html').write_text(series_page(s))
     (ROOT / "brand" / "index.html").write_text(brand_page())
+    (ROOT / "hardware").mkdir(exist_ok=True)
+    (ROOT / "hardware" / "index.html").write_text(hardware_page())
     (ROOT / "studio").mkdir(exist_ok=True)
     (ROOT / "studio" / "index.html").write_text(studio_page())
     (ROOT / "sitemap.xml").write_text(sitemap())
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {CONFIG['site_url']}/sitemap.xml\n")
-    print("built", 4 + len(SERIES), "pages")
+    print("built", 5 + len(SERIES), "pages")
