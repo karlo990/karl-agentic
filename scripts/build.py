@@ -500,7 +500,7 @@ def write_readme_sources(data):
             lines.append(f"| [{l['store']}]({l['url']}) | {l['item']} | {rand(l['price'])} | {l['note']} |")
             stores.setdefault(l["store"], l["url"].split("/")[2])
         lines.append("")
-    lines += ["### All stores and websites used", ""] + [f"- **{k}**: {v}" for k, v in stores.items()] + [""]
+    lines += ["### All stores and where each price was found", ""] + [f"- **{k}**: price found on {v}" for k, v in stores.items()] + [""]
     md = "\n".join(lines)
     rp = ROOT / "README.md"; t = rp.read_text()
     start, end = "<!-- prices:start -->", "<!-- prices:end -->"

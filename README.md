@@ -138,17 +138,17 @@ Checked 2026-11-23. Average of the 4 lowest South African listings found by web 
 
 No South African rand listings found. Quote on request.
 
-### All stores and websites used
+### All stores and where each price was found
 
-- **Evetech**: evezone.evetech.co.za
-- **Dreamware**: evezone.evetech.co.za
-- **Comx Computers**: www.comx-computers.co.za
-- **tech.co.za**: tech.co.za
-- **MyGaming retailer comparison**: mygaming.co.za
-- **Evetech (EveZone listing)**: evezone.evetech.co.za
-- **Bob Shop (Gradagio, Johannesburg)**: www.bobshop.co.za
-- **IT Procurement**: itprocurement.co.za
-- **Bob Shop**: www.bobshop.co.za
-- **RS South Africa**: za.rs-online.com
+- **Evetech**: price found on evezone.evetech.co.za
+- **Dreamware**: price found on evezone.evetech.co.za
+- **Comx Computers**: price found on www.comx-computers.co.za
+- **tech.co.za**: price found on tech.co.za
+- **MyGaming retailer comparison**: price found on mygaming.co.za
+- **Evetech (EveZone listing)**: price found on evezone.evetech.co.za
+- **Bob Shop (Gradagio, Johannesburg)**: price found on www.bobshop.co.za
+- **IT Procurement**: price found on itprocurement.co.za
+- **Bob Shop**: price found on www.bobshop.co.za
+- **RS South Africa**: price found on za.rs-online.com
 
 <!-- prices:end -->
