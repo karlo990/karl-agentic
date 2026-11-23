@@ -1,0 +1,494 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="description" content="Karl Agentic brand kit: logo, colours, typography, voice and applications."><link rel="icon" href="/favicon.ico" sizes="any"><style>body{margin:0}</style><title>Karl Agentic Brand Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a brand book — wide numbered chapters on a cool sky ground, each with a label rail and a showcase stage */
+:root{
+  --blue:#1D8BF7; --blue-deep:#0A5CE0; --pink:#F0287A; --pink-deep:#C8155E; --navy:#0B1530; --sky:#8EC9FF; --cloud:#F4F7FC;
+  --bg:#F3F6FC; --surface:#FFFFFF; --surface-2:#E9EFF9; --fg:#0B1530; --muted:#55627F; --line:#D6DEEC; --accent:var(--blue-deep);
+  --f-display:"Unbounded","Manrope",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#070D1F; --surface:#0F1A33; --surface-2:#16233F; --fg:#E8EEFA; --muted:#93A1BF; --line:#22314F; --accent:#5AAEFF; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#070D1F; --surface:#0F1A33; --surface-2:#16233F; --fg:#E8EEFA; --muted:#93A1BF; --line:#22314F; --accent:#5AAEFF; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1rem;font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:62ch}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+
+/* hero */
+.hero{margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:calc(env(safe-area-inset-top,0px) + 3.5rem);padding-bottom:3.5rem;
+  background:radial-gradient(1200px 500px at 85% -10%,rgba(29,139,247,.35),transparent 60%),radial-gradient(700px 400px at 0% 110%,rgba(240,40,122,.22),transparent 60%),#0B1530;color:#F4F7FC}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2.5rem;align-items:center}
+.hero .eyebrow{color:#8EC9FF}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:800;letter-spacing:-.02em;margin:.6rem 0 1rem}
+.hero h1 span{color:#5AAEFF;font-weight:400}
+.hero p.tag{font-size:1.2rem;color:#C9D6EE;max-width:40ch}
+.hero .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.chip{font-family:var(--f-mono);font-size:.75rem;padding:.35rem .7rem;border-radius:99px;border:1px solid rgba(142,201,255,.35);color:#C9D6EE}
+.hero-mark{justify-self:center;width:min(100%,360px);filter:drop-shadow(0 30px 50px rgba(10,92,224,.45))}
+.hero-mark svg{width:100%;height:auto;display:block}
+
+section{padding-block:4.5rem;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:200px minmax(0,1fr);gap:1.5rem;margin-bottom:2.2rem}
+.sec-head .eyebrow{padding-top:.6rem}
+.sec-head .lede{margin-top:.8rem}
+
+/* idea */
+.equation{display:grid;grid-template-columns:1fr auto 1fr auto 1.2fr;gap:1rem;align-items:center}
+.eq-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem;display:grid;gap:.7rem;justify-items:start;min-width:0}
+.eq-card svg{width:72px;height:72px}
+.eq-card p{color:var(--muted);font-size:.95rem}
+.eq-op{font-family:var(--f-display);font-size:2rem;color:var(--muted)}
+.eq-card.result{background:var(--navy);color:#F4F7FC;border-color:transparent}
+.eq-card.result p{color:#C9D6EE}
+
+/* logo grid */
+.logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem}
+.tile{border-radius:18px;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.tile .stage{flex:1;display:grid;place-items:center;padding:2rem 1.2rem;min-height:220px}
+.tile .meta{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.75rem 1rem;border-top:1px solid var(--line);font-size:.85rem}
+.tile .meta b{font-weight:600}
+.span-4{grid-column:span 4}.span-2{grid-column:span 2}.span-3{grid-column:span 3}
+.stage.navy{background:#0B1530}.stage.blue{background:linear-gradient(135deg,#1D8BF7,#0A5CE0)}.stage.pink{background:#F0287A}.stage.white{background:#fff}
+.lockup{display:flex;align-items:center;gap:.9rem}
+.lockup svg.m{flex:none}
+.word{font-family:var(--f-display);line-height:.95;letter-spacing:-.015em}
+.word .k{font-weight:800}.word .a{font-weight:400}
+.btn-copy{border:1px solid var(--line);background:var(--surface-2);color:var(--fg);border-radius:8px;padding:.3rem .6rem;font-size:.78rem;cursor:pointer;font-family:var(--f-mono)}
+.btn-copy:hover{border-color:var(--accent)}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem;display:grid;gap:.7rem;min-width:0}
+.rule .r-stage{height:120px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;overflow:hidden}
+.rule p{font-size:.88rem;color:var(--muted)}
+.rule .no{color:var(--pink-deep);font-weight:700;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em}
+.rule .yes{color:#13914F;font-weight:700;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em}
+:root[data-theme="dark"] .rule .no{color:#FF6FA7}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule .no{color:#FF6FA7}}
+.clear{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem}
+.clear-stage{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:2rem;display:grid;place-items:center}
+.clear-box{position:relative;padding:34px;outline:1.5px dashed var(--pink);outline-offset:0}
+.clear-box::after{content:"x = cursor height";position:absolute;top:6px;left:8px;font-family:var(--f-mono);font-size:.7rem;color:var(--pink)}
+.spec{display:grid;gap:.9rem;align-content:center}
+.spec div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.6rem;font-size:.95rem}
+.spec span:last-child{font-family:var(--f-mono);color:var(--muted);text-align:right}
+
+/* colors */
+.swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem}
+.sw{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.sw .chipc{height:150px;display:flex;align-items:flex-end;padding:.8rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em}
+.sw .info{padding:.9rem 1rem;display:grid;gap:.25rem}
+.sw .info b{font-family:var(--f-display);font-weight:600;font-size:.95rem}
+.sw .info code{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.sw .info .row{display:flex;justify-content:space-between;align-items:center;gap:.4rem}
+.sw.big{grid-column:span 3}.sw.mid{grid-column:span 2}
+.ratio{margin-top:1.4rem;display:flex;height:22px;border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.ratio div{display:grid;place-items:center;font-family:var(--f-mono);font-size:.68rem;color:#fff}
+.grad-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.grad{height:90px;border-radius:14px;padding:.7rem .9rem;display:flex;align-items:flex-end;color:#fff;font-family:var(--f-mono);font-size:.72rem}
+
+/* type */
+.type-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem}
+.type-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.6rem;min-width:0;display:grid;gap:1rem;align-content:start}
+.type-card .big{font-family:var(--f-display);font-size:clamp(3rem,8vw,5.5rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.type-card .alpha{font-family:var(--f-display);font-size:1.1rem;color:var(--muted);word-break:break-all}
+.scale{display:grid;gap:.4rem}
+.scale div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:1rem;align-items:baseline;border-bottom:1px solid var(--line);padding-block:.5rem}
+.scale code{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.scale span{overflow-wrap:anywhere}
+
+/* voice */
+.voice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.v-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem;display:grid;gap:.6rem;align-content:start;min-width:0}
+.v-card .say{font-family:var(--f-display);font-size:1.05rem;font-weight:600}
+.v-card p{color:var(--muted);font-size:.93rem}
+.taglines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.tagl{border-radius:18px;padding:1.4rem 1.6rem;background:var(--navy);color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-width:0}
+.tagl.primary{background:linear-gradient(120deg,#0A5CE0,#1D8BF7)}
+.tagl q{font-family:var(--f-display);font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:600;quotes:none}
+.tagl small{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;white-space:nowrap}
+.pitch{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.6rem;display:grid;grid-template-columns:200px minmax(0,1fr);gap:1.5rem}
+.pitch p{font-size:1.1rem;max-width:68ch}
+.words{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.words span{padding:.35rem .75rem;border-radius:99px;font-size:.85rem;border:1px solid var(--line);background:var(--surface)}
+.words span.x{text-decoration:line-through;color:var(--muted)}
+
+/* services / icons */
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem;display:grid;gap:.7rem;align-content:start;min-width:0}
+.svc .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--surface-2)}
+.svc .ic svg{width:28px;height:28px}
+.svc p{color:var(--muted);font-size:.92rem}
+.svc .code{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1rem}
+.app{min-width:0;display:grid;gap:.6rem;align-content:start}
+.app .cap{font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;gap:.5rem}
+.app .cap b{color:var(--fg);font-weight:600}
+.a-card{grid-column:span 7}.a-ig{grid-column:span 5}.a-li{grid-column:span 12}.a-sig{grid-column:span 7}.a-icon{grid-column:span 5}.a-web{grid-column:span 12}.a-pow{grid-column:span 5}.a-merch{grid-column:span 7}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.bcard{aspect-ratio:85/55;max-width:100%;border-radius:12px;padding:1.1rem;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 30px rgba(11,21,48,.18);overflow:hidden;position:relative}
+.bcard.front{background:#0B1530;color:#fff}
+.bcard.back{background:#fff;color:#0B1530}
+.bcard .nm{font-family:var(--f-display);font-weight:700;font-size:.95rem}
+.bcard .rl{font-size:.7rem;color:#55627F}
+.bcard .ct{font-family:var(--f-mono);font-size:.6rem;line-height:1.7;color:#0B1530}
+.bcard.front .ray{position:absolute;right:-30px;bottom:-30px;opacity:.18}
+.ig{aspect-ratio:1;max-width:100%;border-radius:16px;overflow:hidden;background:radial-gradient(500px 300px at 100% 0%,#1D8BF7,transparent 70%),#0B1530;color:#fff;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.ig h4{font-family:var(--f-display);font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.05;margin:0;font-weight:700}
+.ig h4 em{font-style:normal;color:#FF5C9D}
+.ig .foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:.7rem;color:#C9D6EE}
+.li{aspect-ratio:4/1;max-width:100%;border-radius:16px;overflow:hidden;background:linear-gradient(100deg,#0B1530 0%,#0B1530 45%,#0A5CE0 100%);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4%;gap:1rem;position:relative}
+.li .t{font-family:var(--f-display);font-weight:700;font-size:clamp(.9rem,2.6vw,2rem);line-height:1.1}
+.li .t span{display:block;font-family:var(--f-body);font-weight:500;font-size:clamp(.6rem,1.2vw,.95rem);color:#C9D6EE;margin-top:.4rem}
+.li .pills{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.li .pills span{font-family:var(--f-mono);font-size:clamp(.5rem,1vw,.72rem);padding:.3rem .6rem;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.sig{background:#fff;color:#0B1530;border-radius:14px;padding:1.3rem;border:1px solid var(--line);display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.sig .bar{width:2px;align-self:stretch;background:linear-gradient(#1D8BF7,#F0287A)}
+.sig .n{font-family:var(--f-display);font-weight:700}
+.sig .r{font-size:.8rem;color:#55627F}
+.sig .c{font-family:var(--f-mono);font-size:.72rem;line-height:1.7}
+.sig .c b{color:#F0287A;font-weight:600}
+.icons{display:flex;align-items:flex-end;gap:1.2rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem}
+.icons figure{margin:0;display:grid;gap:.4rem;justify-items:center;font-family:var(--f-mono);font-size:.68rem;color:var(--muted)}
+.appicon{border-radius:22%;background:linear-gradient(150deg,#13254F,#0B1530);display:grid;place-items:center;box-shadow:0 8px 18px rgba(11,21,48,.25)}
+.web{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;color:#0B1530}
+.web .bar{display:flex;gap:6px;padding:.6rem .8rem;background:#E9EFF9;align-items:center}
+.web .bar i{width:10px;height:10px;border-radius:50%;background:#C3CDDF;display:block}
+.web .bar span{margin-left:.8rem;font-family:var(--f-mono);font-size:.72rem;color:#55627F;background:#fff;border-radius:6px;padding:.15rem .6rem}
+.web nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.6rem;gap:1rem;flex-wrap:wrap}
+.web nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-size:.88rem;color:#55627F;flex-wrap:wrap}
+.web .hero2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:1.5rem;padding:2rem 1.6rem 2.6rem;align-items:center}
+.web h5{font-family:var(--f-display);font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.05;margin:0 0 1rem;font-weight:800;letter-spacing:-.02em}
+.web h5 em{font-style:normal;color:#0A5CE0}
+.web p{color:#55627F;max-width:46ch}
+.cta-row{display:flex;gap:.7rem;margin-top:1.3rem;flex-wrap:wrap}
+.cta{border-radius:999px;padding:.7rem 1.2rem;font-weight:700;font-size:.9rem;border:none;cursor:default}
+.cta.p{background:#F0287A;color:#fff;box-shadow:0 8px 20px rgba(240,40,122,.35)}
+.cta.s{background:#E9EFF9;color:#0B1530}
+.agent-panel{background:#0B1530;border-radius:16px;padding:1rem;color:#E8EEFA;display:grid;gap:.6rem;font-size:.82rem}
+.agent-panel .ln{display:flex;gap:.6rem;align-items:center;background:rgba(255,255,255,.06);border-radius:10px;padding:.55rem .7rem}
+.agent-panel .ln svg{flex:none}
+.agent-panel .ln span{flex:1}
+.agent-panel .ln em{font-style:normal;font-family:var(--f-mono);font-size:.68rem;color:#8EC9FF}
+.pow{display:flex;flex-wrap:wrap;gap:.8rem;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem}
+.pbadge{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.4rem .9rem .4rem .45rem;font-size:.78rem;font-weight:600}
+.pbadge.d{background:#0B1530;color:#fff}.pbadge.l{background:#fff;color:#0B1530;border:1px solid #D6DEEC}
+.pbadge small{display:block;font-size:.6rem;font-weight:500;opacity:.7;font-family:var(--f-mono);letter-spacing:.06em}
+.merch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.mug,.tee,.sticker{border-radius:14px;aspect-ratio:1;display:grid;place-items:center;max-width:100%}
+.tee{background:#0B1530}.mug{background:#E9EFF9}.sticker{background:repeating-linear-gradient(45deg,#F3F6FC 0 10px,#E9EFF9 10px 20px)}
+
+footer{padding-block:3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:.6rem 1rem;border-radius:10px;font-size:.85rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.toast.on{opacity:1}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-mark{width:min(70%,280px);grid-row:1}
+  .sec-head,.pitch{grid-template-columns:1fr;gap:.4rem}
+  .equation{grid-template-columns:1fr}
+  .eq-op{justify-self:center;line-height:1}
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .span-4,.span-2,.span-3{grid-column:span 2}
+  .rules,.services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sw.big,.sw.mid{grid-column:span 1}
+  .type-grid,.clear,.voice,.taglines,.web .hero2{grid-template-columns:1fr}
+  .apps>*{grid-column:span 12 !important}
+  .grad-row{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .rules,.services,.cards,.merch{grid-template-columns:1fr}
+  .li{aspect-ratio:auto;padding:1.2rem;flex-direction:column;align-items:flex-start}
+  .li .pills{justify-content:flex-start}
+  .tagl{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-mark .ray{animation:flash 2.4s ease-in-out infinite}
+  .hero-mark .ray:nth-child(2){animation-delay:.12s}.hero-mark .ray:nth-child(3){animation-delay:.24s}
+  @keyframes flash{0%,60%,100%{opacity:1}30%{opacity:.25}}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Brand Kit · v1.0 · November 2026</div>
+      <h1>Karl <span>Agentic</span></h1>
+      <p class="tag">Verified AI agents that take action inside your business: booking, marketing, sales and operations.</p>
+      <div class="chips"><span class="chip">Logo suite</span><span class="chip">Colour</span><span class="chip">Type</span><span class="chip">Voice</span><span class="chip">Services</span><span class="chip">Applications</span></div>
+    </div>
+    <div class="hero-mark" data-mark="primary" data-size="360"></div>
+  </div>
+</header>
+
+<main>
+<section id="idea"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Brand idea</div>
+    <div><h2>Trust, then action.</h2><p class="lede">The mark joins your two symbols. The scalloped seal means verified: the agent is approved, tested and safe to hand work to. The pink cursor means action: it clicks, books, sends and follows up for you. Together they say what every client wants from AI.</p></div></div>
+  <div class="equation">
+    <div class="eq-card"><div data-mark="seal" data-size="72"></div><h3>The Seal</h3><p>Verified. Reliable. Every agent we install is checked before it touches a customer.</p></div>
+    <div class="eq-op">+</div>
+    <div class="eq-card"><div data-mark="cursor" data-size="72"></div><h3>The Click</h3><p>Action. Agents don't just answer questions. They open the calendar and book the slot.</p></div>
+    <div class="eq-op">=</div>
+    <div class="eq-card result"><div data-mark="primary" data-size="72"></div><h3>Karl Agentic</h3><p>Agents you can trust to do the work.</p></div>
+  </div>
+</div></section>
+
+<section id="logo"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Logo suite</div>
+    <div><h2>One mark, six ways to use it.</h2><p class="lede">Use the horizontal lockup by default. Use the mark alone where space is tight or the name already appears nearby. Every tile has a Copy SVG button for use in Canva, Figma or the website.</p></div></div>
+  <div class="logo-grid">
+    <div class="tile span-4"><div class="stage" data-lockup="h" data-theme-l="light"></div><div class="meta"><span><b>Primary lockup</b> · horizontal</span><button class="btn-copy" data-copy-svg="h-light">Copy SVG</button></div></div>
+    <div class="tile span-2"><div class="stage" data-mark="primary" data-size="150"></div><div class="meta"><span><b>Mark</b> · full colour</span><button class="btn-copy" data-copy-svg="mark">Copy SVG</button></div></div>
+    <div class="tile span-2"><div class="stage navy" data-lockup="v"></div><div class="meta"><span><b>Stacked</b> · on Navy</span><button class="btn-copy" data-copy-svg="v-dark">Copy SVG</button></div></div>
+    <div class="tile span-2"><div class="stage blue" data-mark="reverse" data-size="140"></div><div class="meta"><span><b>Reverse</b> · on Blue</span><button class="btn-copy" data-copy-svg="reverse">Copy SVG</button></div></div>
+    <div class="tile span-2"><div class="stage white" data-mark="mono" data-size="140"></div><div class="meta"><span><b>One colour</b> · Navy</span><button class="btn-copy" data-copy-svg="mono">Copy SVG</button></div></div>
+    <div class="tile span-3"><div class="stage navy" data-lockup="h-dark"></div><div class="meta"><span><b>Lockup</b> · on Navy</span><button class="btn-copy" data-copy-svg="h-dark">Copy SVG</button></div></div>
+    <div class="tile span-3"><div class="stage pink" data-lockup="word"></div><div class="meta"><span><b>Wordmark</b> · for merch</span><button class="btn-copy" data-copy-svg="word">Copy SVG</button></div></div>
+  </div>
+
+  <div class="clear" style="margin-top:1rem">
+    <div class="clear-stage"><div class="clear-box" data-lockup="h-plain"></div></div>
+    <div class="spec">
+      <h3>Clear space and sizing</h3>
+      <div><span>Clear space on all sides</span><span>1 × cursor height</span></div>
+      <div><span>Minimum lockup width</span><span>120 px / 30 mm</span></div>
+      <div><span>Minimum mark size</span><span>24 px / 6 mm</span></div>
+      <div><span>Favicon (16–32 px)</span><span>Mark, rays removed</span></div>
+      <div><span>Cursor angle</span><span>Fixed, tip points up-left</span></div>
+    </div>
+  </div>
+
+  <div class="rules">
+    <div class="rule"><div class="r-stage" data-mark="primary" data-size="80"></div><span class="yes">DO</span><p>Keep the cursor tip touching the seal. That contact is the "click".</p></div>
+    <div class="rule"><div class="r-stage" data-mark="primary" data-size="80" style="--rot:1"></div><span class="no">DON'T</span><p>Rotate, tilt or flip the mark. The cursor always points up-left.</p></div>
+    <div class="rule"><div class="r-stage" data-mark="recolor" data-size="80"></div><span class="no">DON'T</span><p>Swap the colours. The seal is always blue, the cursor always pink.</p></div>
+    <div class="rule"><div class="r-stage" data-mark="primary" data-size="80" style="--squash:1"></div><span class="no">DON'T</span><p>Stretch, squash or add shadows and outlines to the logo.</p></div>
+  </div>
+</div></section>
+
+<section id="colour"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Colour</div>
+    <div><h2>Verified Blue leads. Click Pink acts.</h2><p class="lede">Blue carries trust and fills most surfaces. Pink is the action colour: buttons, cursors, highlights and anything a person should click. Use pink sparingly so it always means "do this".</p></div></div>
+  <div class="swatches" id="swatches"></div>
+  <div class="ratio" aria-label="Colour usage ratio">
+    <div style="flex:40;background:#0B1530">Navy 40%</div><div style="flex:30;background:#F4F7FC;color:#0B1530">Cloud 30%</div><div style="flex:20;background:#1D8BF7">Blue 20%</div><div style="flex:10;background:#F0287A">Pink 10%</div>
+  </div>
+  <div class="grad-row">
+    <div class="grad" style="background:linear-gradient(135deg,#1D8BF7,#0A5CE0)">Seal gradient · 135° · #1D8BF7 → #0A5CE0</div>
+    <div class="grad" style="background:linear-gradient(135deg,#FF4D93,#C8155E)">Cursor gradient · 135° · #FF4D93 → #C8155E</div>
+    <div class="grad" style="background:linear-gradient(100deg,#0B1530 30%,#0A5CE0)">Hero gradient · 100° · Navy → Deep Blue</div>
+  </div>
+</div></section>
+
+<section id="type"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Typography</div>
+    <div><h2>Wide headlines, friendly body, code for detail.</h2><p class="lede">All three fonts are free on Google Fonts and available in Canva.</p></div></div>
+  <div class="type-grid">
+    <div class="type-card">
+      <span class="eyebrow">Display · Unbounded 400 / 700 / 800</span>
+      <div class="big">Aa Kk</div>
+      <div class="alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+      <div class="scale">
+        <div><code>H1 · 64/800</code><span style="font-family:var(--f-display);font-weight:800;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.05">Agents that work</span></div>
+        <div><code>H2 · 36/700</code><span style="font-family:var(--f-display);font-weight:700;font-size:1.6rem;line-height:1.1">Booked while you sleep</span></div>
+        <div><code>H3 · 20/600</code><span style="font-family:var(--f-display);font-weight:600;font-size:1.2rem">Marketing agent</span></div>
+        <div><code>Body · 16/400</code><span>Your Karl agent answers every enquiry in under a minute and books the appointment.</span></div>
+        <div><code>Label · 12 mono</code><span style="font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase">Agent status · live</span></div>
+      </div>
+    </div>
+    <div class="type-card">
+      <span class="eyebrow">Body · Manrope 400 / 600 / 700</span>
+      <div class="big" style="font-family:var(--f-body);font-weight:700">Aa</div>
+      <p>Manrope is used for paragraphs, proposals, emails and interface text. It stays readable at small sizes on phones, where most clients will first meet the brand.</p>
+      <span class="eyebrow">Utility · JetBrains Mono</span>
+      <p style="font-family:var(--f-mono);font-size:.9rem">AGENT-07 · 1,284 tasks · 99.2% done</p>
+      <p style="color:var(--muted);font-size:.9rem">Use mono for numbers, stats, agent names and small labels. Never for paragraphs.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="voice"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Voice</div>
+    <div><h2>Speak like a sharp operator, not a robot.</h2><p class="lede">Clients are business owners, not engineers. Talk about hours saved, bookings made and leads followed up. Skip the AI jargon.</p></div></div>
+  <div class="voice">
+    <div class="v-card"><span class="eyebrow">Confident</span><div class="say">"Your agent books the table."</div><p>Not: "Our AI-powered solution may help optimise reservations."</p></div>
+    <div class="v-card"><span class="eyebrow">Clear</span><div class="say">"Every lead gets a reply in 60 seconds."</div><p>Not: "Leveraging LLM orchestration for omnichannel engagement."</p></div>
+    <div class="v-card"><span class="eyebrow">Accountable</span><div class="say">"You approve it before it goes live."</div><p>Trust is the seal. Always show the client stays in control.</p></div>
+  </div>
+  <div class="taglines">
+    <div class="tagl primary"><q>Verified agents. Real work.</q><small>Primary tagline</small></div>
+    <div class="tagl"><q>Your business, on autopilot.</q><small>Campaigns</small></div>
+    <div class="tagl"><q>Click less. Grow more.</q><small>Marketing</small></div>
+    <div class="tagl"><q>We install the agents. You take the wins.</q><small>Sales deck</small></div>
+  </div>
+  <div class="pitch"><div class="eyebrow">Elevator pitch</div>
+    <p>Karl Agentic designs, installs and runs AI agents for businesses. Our agents answer customers, book appointments, run marketing and chase leads around the clock, like the booking assistant we built for Royal Crest. Every agent is tested and approved by you before it goes live.</p></div>
+  <div class="words">
+    <span>agents</span><span>booked</span><span>live</span><span>verified</span><span>hours saved</span><span>follow-up</span><span>always on</span><span class="x">synergy</span><span class="x">revolutionary</span><span class="x">cutting-edge</span><span class="x">AI-powered solution</span>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Services & icons</div>
+    <div><h2>Four agent lines.</h2><p class="lede">Each service has a code and an icon built from the same rounded strokes as the mark. Use them on the website, proposals and invoices.</p></div></div>
+  <div class="services" id="svc-list"></div>
+</div></section>
+
+<section id="apps"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Applications</div>
+    <div><h2>The kit in use.</h2><p class="lede">Example layouts. Contact details are placeholders until the domain and handles are registered.</p></div></div>
+  <div class="apps">
+    <div class="app a-card"><div class="cap"><b>Business card</b><span>85 × 55 mm</span></div>
+      <div class="cards">
+        <div class="bcard front"><div data-lockup="h-card"></div><div style="font-family:var(--f-mono);font-size:.6rem;color:#8EC9FF;letter-spacing:.12em">VERIFIED AGENTS · REAL WORK</div><div class="ray" data-mark="cursor-white" data-size="150"></div></div>
+        <div class="bcard back"><div><div class="nm">Karl</div><div class="rl">Founder · Agent Architect</div></div><div class="ct">hello@karlagentic.com<br>+00 000 000 000<br>karlagentic.com</div><div style="position:absolute;right:1rem;top:1rem" data-mark="primary" data-size="34"></div></div>
+      </div></div>
+    <div class="app a-ig"><div class="cap"><b>Instagram post</b><span>1080 × 1080</span></div>
+      <div class="ig"><div data-mark="primary" data-size="56"></div><h4>Your front desk never sleeps. <em>Neither does your agent.</em></h4><div class="foot"><span>@karlagentic</span><span>Book a demo →</span></div></div></div>
+    <div class="app a-li"><div class="cap"><b>LinkedIn / X banner</b><span>1584 × 396</span></div>
+      <div class="li"><div style="display:flex;align-items:center;gap:1rem"><div data-mark="primary" data-size="76"></div><div class="t">AI agents for real businesses.<span>Booking · Marketing · Sales · Operations</span></div></div><div class="pills"><span>KA-BOOK</span><span>KA-REACH</span><span>KA-CLOSE</span><span>KA-OPS</span></div></div></div>
+    <div class="app a-sig"><div class="cap"><b>Email signature</b><span>600 px wide</span></div>
+      <div class="sig"><div data-mark="primary" data-size="52"></div><div class="bar"></div><div><div class="n">Karl</div><div class="r">Founder, Karl Agentic</div></div><div class="c"><b>●</b> karlagentic.com<br>hello@karlagentic.com</div></div></div>
+    <div class="app a-icon"><div class="cap"><b>App icon & favicon</b><span>iOS · Android · web</span></div>
+      <div class="icons" id="icons"></div></div>
+    <div class="app a-web"><div class="cap"><b>Website hero</b><span>Desktop</span></div>
+      <div class="web"><div class="bar"><i></i><i></i><i></i><span>karlagentic.com</span></div>
+        <nav><div data-lockup="h-web"></div><ul><li>Agents</li><li>Case studies</li><li>Pricing</li><li>About</li></ul></nav>
+        <div class="hero2"><div><h5>Hire agents that <em>actually do the work.</em></h5><p>We build and install AI agents that answer customers, book appointments and run your marketing. Tested, approved by you, live in two weeks.</p><div class="cta-row"><span class="cta p">Book a demo</span><span class="cta s">See Royal Crest case</span></div></div>
+          <div class="agent-panel" id="panel"></div></div></div></div>
+    <div class="app a-pow"><div class="cap"><b>"Powered by" badge</b><span>For client sites</span></div>
+      <div class="pow"><span class="pbadge d"><span data-mark="primary" data-size="26"></span><span><small>POWERED BY</small>Karl Agentic</span></span><span class="pbadge l"><span data-mark="primary" data-size="26"></span><span><small>VERIFIED AGENT</small>Karl Agentic</span></span></div></div>
+    <div class="app a-merch"><div class="cap"><b>Merch</b><span>Tee · mug · sticker</span></div>
+      <div class="merch"><div class="tee"><div data-lockup="v-small"></div></div><div class="mug"><div data-mark="primary" data-size="90"></div></div><div class="sticker"><div data-mark="sticker" data-size="110"></div></div></div></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><div class="lockup" data-lockup="h-foot"></div><span>Karl Agentic Brand Kit v1.0 · Check name, domain and trademark availability before printing.</span></div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  // scalloped seal path, 16 lobes
+  function sealPath(cx,cy,r,amp,n){let d='';const steps=192;for(let i=0;i<=steps;i++){const t=i/steps*Math.PI*2;const rr=r+amp*Math.cos(n*t);const x=cx+rr*Math.cos(t),y=cy+rr*Math.sin(t);d+=(i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)}return d+'Z'}
+  const SEAL=sealPath(92,92,74,5,16);
+  const CURSOR='M128 126 L132 196 L154 174 L196 178 Z';
+  let uid=0;
+  function mark(o){
+    const id='g'+(uid++);
+    const p=Object.assign({seal:'url(#'+id+'b)',check:'#fff',cursor:'url(#'+id+'p)',edge:'#fff',rays:'#fff',showSeal:true,showCursor:true,showCheck:true,showRays:true,size:120,bg:null},o);
+    let s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204 204" width="'+p.size+'" height="'+p.size+'" role="img" aria-label="Karl Agentic mark"><defs><linearGradient id="'+id+'b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E9BFF"/><stop offset="1" stop-color="#0A5CE0"/></linearGradient><linearGradient id="'+id+'p" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D93"/><stop offset="1" stop-color="#C8155E"/></linearGradient></defs>';
+    if(p.bg)s+='<rect width="204" height="204" rx="44" fill="'+p.bg+'"/>';
+    if(p.showSeal)s+='<path d="'+SEAL+'" fill="'+p.seal+'"/>';
+    if(p.showCheck)s+='<path d="M52 92 L80 119 L128 66" fill="none" stroke="'+p.check+'" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>';
+    if(p.showRays)s+='<g stroke="'+p.rays+'" stroke-width="7" stroke-linecap="round"><line class="ray" x1="124" y1="112" x2="122" y2="99"/><line class="ray" x1="115" y1="117" x2="105" y2="108"/><line class="ray" x1="113" y1="127" x2="100" y2="128"/></g>';
+    if(p.showCursor)s+='<path d="'+CURSOR+'" fill="'+p.cursor+'" stroke="'+p.edge+'" stroke-width="9" stroke-linejoin="round" paint-order="stroke"/><path d="'+CURSOR+'" fill="'+p.cursor+'" stroke="'+p.cursor+'" stroke-width="4" stroke-linejoin="round"/>';
+    return s+'</svg>';
+  }
+  const V={
+    primary:s=>mark({size:s}),
+    seal:s=>mark({size:s,showCursor:false,showRays:false}),
+    cursor:s=>mark({size:s,showSeal:false,showCheck:false,rays:'#F0287A',edge:'none'}),
+    'cursor-white':s=>mark({size:s,showSeal:false,showCheck:false,rays:'#fff',cursor:'#fff',edge:'none'}),
+    reverse:s=>mark({size:s,seal:'#fff',check:'#0A5CE0',rays:'#0A5CE0',cursor:'#0B1530',edge:'#fff'}),
+    mono:s=>mark({size:s,seal:'#0B1530',check:'#fff',rays:'#fff',cursor:'#0B1530',edge:'#fff'}),
+    recolor:s=>mark({size:s,seal:'#F0287A',cursor:'#1D8BF7'}),
+    sticker:s=>'<div style="filter:drop-shadow(0 0 0 #fff) drop-shadow(0 6px 10px rgba(11,21,48,.2));background:#fff;border-radius:50%;padding:8px">'+mark({size:s})+'</div>',
+    app:s=>mark({size:s,bg:'#0B1530'}),
+    fav:s=>mark({size:s,showRays:false})
+  };
+  function word(size,c1,c2){return '<div class="word" style="font-size:'+size+'px;color:'+c1+'"><span class="k">Karl</span> <span class="a" style="color:'+c2+'">Agentic</span></div>'}
+  function lockup(kind){
+    switch(kind){
+      case 'h': return '<div class="lockup">'+mark({size:84})+word(38,'var(--fg)','var(--accent)')+'</div>';
+      case 'h-plain': return '<div class="lockup">'+mark({size:64})+word(28,'var(--fg)','var(--accent)')+'</div>';
+      case 'h-dark': return '<div class="lockup">'+mark({size:70})+word(32,'#fff','#5AAEFF')+'</div>';
+      case 'h-card': return '<div class="lockup" style="gap:.5rem">'+mark({size:40})+word(17,'#fff','#5AAEFF')+'</div>';
+      case 'h-web': return '<div class="lockup" style="gap:.5rem">'+mark({size:36})+word(16,'#0B1530','#0A5CE0')+'</div>';
+      case 'h-foot': return mark({size:32})+word(15,'var(--fg)','var(--accent)');
+      case 'v': return '<div style="display:grid;justify-items:center;gap:.8rem">'+mark({size:96})+'<div style="text-align:center">'+word(24,'#fff','#5AAEFF')+'</div></div>';
+      case 'v-small': return '<div style="display:grid;justify-items:center;gap:.4rem">'+mark({size:56})+word(12,'#fff','#5AAEFF')+'</div>';
+      case 'word': return '<div class="word" style="font-size:40px;color:#fff;text-align:center"><span class="k">KARL</span><br><span class="a">AGENTIC</span></div>';
+    }
+  }
+  document.querySelectorAll('[data-mark]').forEach(el=>{const s=+el.dataset.size||120;el.innerHTML=V[el.dataset.mark](s);
+    const svg=el.querySelector('svg');if(svg&&el.style.getPropertyValue('--rot'))svg.style.transform='rotate(-35deg)';if(svg&&el.style.getPropertyValue('--squash'))svg.style.transform='scaleX(1.5) scaleY(.75)'});
+  document.querySelectorAll('[data-lockup]').forEach(el=>el.innerHTML=lockup(el.dataset.lockup));
+
+  // standalone SVGs for copying (wordmark as live text using Unbounded with fallback)
+  const fontRef='font-family="Unbounded, Manrope, Arial, sans-serif"';
+  function inner(svg){return svg.replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}
+  function lockSVG(dark){const m=inner(mark({size:204}));const c1=dark?'#FFFFFF':'#0B1530',c2=dark?'#5AAEFF':'#0A5CE0';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 204" width="760" height="204">'+(dark?'<rect width="760" height="204" fill="#0B1530"/>':'')+'<g>'+m+'</g><text x="228" y="128" '+fontRef+' font-size="74" fill="'+c1+'" font-weight="800">Karl <tspan font-weight="400" fill="'+c2+'">Agentic</tspan></text></svg>'}
+  function vSVG(){const m=inner(mark({size:204}));return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 330" width="420" height="330"><rect width="420" height="330" fill="#0B1530"/><g transform="translate(108 10)">'+m+'</g><text x="210" y="290" text-anchor="middle" '+fontRef+' font-size="44" fill="#fff" font-weight="800">Karl <tspan font-weight="400" fill="#5AAEFF">Agentic</tspan></text></svg>'}
+  const SVGS={
+    'h-light':()=>lockSVG(false),'h-dark':()=>lockSVG(true),'v-dark':vSVG,
+    mark:()=>V.primary(512),reverse:()=>V.reverse(512),mono:()=>V.mono(512),
+    word:()=>'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" width="400" height="140"><rect width="400" height="140" fill="#F0287A"/><text x="200" y="64" text-anchor="middle" '+fontRef+' font-size="46" font-weight="800" fill="#fff">KARL</text><text x="200" y="116" text-anchor="middle" '+fontRef+' font-size="46" font-weight="400" fill="#fff">AGENTIC</text></svg>'
+  };
+  const toast=document.getElementById('toast');let tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1800)}
+  function copy(text,label){
+    const done=()=>say(label+' copied');
+    try{navigator.clipboard.writeText(text).then(done,()=>fallback(text,label))}catch(e){fallback(text,label)}
+  }
+  function fallback(text,label){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    let ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();say(ok?label+' copied':'Copy blocked here. Select the text manually.')}
+  document.querySelectorAll('[data-copy-svg]').forEach(b=>b.addEventListener('click',()=>copy(SVGS[b.dataset.copySvg](),'SVG')));
+
+  // swatches
+  const sw=[
+    {n:'Verified Blue',h:'#1D8BF7',rgb:'29 139 247',cmyk:'88 44 0 3',use:'Seal, links, highlights',cls:'big',t:'#fff'},
+    {n:'Midnight Navy',h:'#0B1530',rgb:'11 21 48',cmyk:'77 56 0 81',use:'Backgrounds, text',cls:'big',t:'#fff'},
+    {n:'Click Pink',h:'#F0287A',rgb:'240 40 122',cmyk:'0 83 49 6',use:'Cursor, buttons, CTAs',cls:'mid',t:'#fff'},
+    {n:'Deep Blue',h:'#0A5CE0',rgb:'10 92 224',cmyk:'96 59 0 12',use:'Gradient end, text links',cls:'mid',t:'#fff'},
+    {n:'Cloud',h:'#F4F7FC',rgb:'244 247 252',cmyk:'3 2 0 1',use:'Light surfaces',cls:'mid',t:'#0B1530'},
+    {n:'Signal Sky',h:'#8EC9FF',rgb:'142 201 255',cmyk:'44 21 0 0',use:'Accents on Navy',cls:'mid',t:'#0B1530'},
+    {n:'Deep Pink',h:'#C8155E',rgb:'200 21 94',cmyk:'0 90 53 22',use:'Pink hover, gradient end',cls:'mid',t:'#fff'},
+    {n:'Slate',h:'#55627F',rgb:'85 98 127',cmyk:'33 23 0 50',use:'Secondary text',cls:'mid',t:'#fff'}
+  ];
+  document.getElementById('swatches').innerHTML=sw.map(c=>'<div class="sw '+c.cls+'"><div class="chipc" style="background:'+c.h+';color:'+c.t+'">'+c.h+'</div><div class="info"><div class="row"><b>'+c.n+'</b><button class="btn-copy" data-hex="'+c.h+'">Copy</button></div><code>RGB '+c.rgb+'</code><code>CMYK '+c.cmyk+'</code><code style="color:var(--fg)">'+c.use+'</code></div></div>').join('');
+  document.querySelectorAll('[data-hex]').forEach(b=>b.addEventListener('click',()=>copy(b.dataset.hex,b.dataset.hex)));
+
+  // service icons
+  const ic={
+    book:'<rect x="4" y="6" width="24" height="22" rx="5" fill="none" stroke="#1D8BF7" stroke-width="3"/><path d="M4 13h24M11 3v6M21 3v6" stroke="#1D8BF7" stroke-width="3" stroke-linecap="round"/><path d="M11 20l3.5 3.5L21 17" fill="none" stroke="#F0287A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+    reach:'<path d="M5 13v6l14 7V6L5 13z" fill="none" stroke="#1D8BF7" stroke-width="3" stroke-linejoin="round"/><path d="M24 11c2 1.5 2 8.5 0 10" fill="none" stroke="#F0287A" stroke-width="3" stroke-linecap="round"/><path d="M8 19l2 7" stroke="#1D8BF7" stroke-width="3" stroke-linecap="round"/>',
+    close:'<circle cx="16" cy="16" r="12" fill="none" stroke="#1D8BF7" stroke-width="3"/><circle cx="16" cy="16" r="5" fill="none" stroke="#1D8BF7" stroke-width="3"/><path d="M16 16l9-9" stroke="#F0287A" stroke-width="3" stroke-linecap="round"/><path d="M22 5h4v4" fill="none" stroke="#F0287A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+    ops:'<circle cx="16" cy="16" r="5" fill="none" stroke="#F0287A" stroke-width="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M6.8 6.8l3.5 3.5M21.7 21.7l3.5 3.5M6.8 25.2l3.5-3.5M21.7 10.3l3.5-3.5" stroke="#1D8BF7" stroke-width="3" stroke-linecap="round"/>'
+  };
+  const svc=[
+    {k:'book',c:'KA-BOOK',n:'Booking agents',d:'Answer WhatsApp, web chat and calls. Check availability and confirm bookings, like the Royal Crest assistant.'},
+    {k:'reach',c:'KA-REACH',n:'Marketing agents',d:'Plan posts, write captions, run email campaigns and report what worked every week.'},
+    {k:'close',c:'KA-CLOSE',n:'Sales agents',d:'Reply to every lead in a minute, qualify them, follow up and put warm deals in your calendar.'},
+    {k:'ops',c:'KA-OPS',n:'Operations agents',d:'Invoices, reminders, reports and admin. The repetitive work that eats your team\'s week.'}
+  ];
+  document.getElementById("svc-list").innerHTML=svc.map(s=>'<div class="svc"><div class="ic"><svg viewBox="0 0 32 32" aria-hidden="true">'+ic[s.k]+'</svg></div><span class="code">'+s.c+'</span><h3>'+s.n+'</h3><p>'+s.d+'</p></div>').join('');
+
+  document.getElementById('icons').innerHTML=[[96,'180 px'],[64,'64 px'],[40,'32 px'],[24,'16 px']].map(([s,l])=>'<figure><div class="appicon" style="width:'+s+'px;height:'+s+'px">'+(s>40?V.app(s*.82):V.fav(s*.86))+'</div><figcaption>'+l+'</figcaption></figure>').join('');
+
+  const check='<svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#1D8BF7"/><path d="M6 10l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const live='<svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="5" fill="#F0287A"/></svg>';
+  document.getElementById('panel').innerHTML='<div style="font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;color:#8EC9FF">AGENT ACTIVITY · EXAMPLE</div>'+
+    [[check,'Booked table for 4, Fri 19:30','2m ago'],[check,'Replied to 12 new leads','9m ago'],[live,'Writing this week\'s posts','now'],[check,'Sent 38 payment reminders','1h ago']].map(r=>'<div class="ln">'+r[0]+'<span>'+r[1]+'</span><em>'+r[2]+'</em></div>').join('');
+})();
+</script>
+<p style="text-align:center;padding:2rem;font-family:Manrope,sans-serif"><a href="/" style="color:#0A5CE0;font-weight:700">← Back to karlagentic</a></p></body></html>

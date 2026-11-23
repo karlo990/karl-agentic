@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://karlagentic.vercel.app/sitemap.xml
