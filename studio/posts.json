@@ -688,5 +688,350 @@
    "/assets/studio/is-an-agent-worth-it/thumb-4.jpg",
    "/assets/studio/is-an-agent-worth-it/thumb-5.jpg"
   ]
+ },
+ {
+  "slug": "private-ai-in-your-office",
+  "cat": "AI",
+  "pre": "Local-first",
+  "title": "Private AI in your office",
+  "sub": "Your data stays home",
+  "gift": "our private AI setup checklist",
+  "caption": "What if your AI never sent a single customer file to the cloud? 🔒\n\nRun the AI on your own machine.\n• Privacy: Client files stay on your network\n• Predictable cost: No per-message API bills\n• Works offline: Even when the internet doesn't\n\n💬 Comment \"AGENT\" and we'll send you our private AI setup checklist.\n📌 Save this for later and share it with someone who needs it.\n\n#AI #PromptEngineering #ClaudeAI #ChatGPT #AItools",
+  "images": [
+   "/assets/studio/private-ai-in-your-office/private-ai-in-your-office-1.jpg",
+   "/assets/studio/private-ai-in-your-office/private-ai-in-your-office-2.jpg",
+   "/assets/studio/private-ai-in-your-office/private-ai-in-your-office-3.jpg",
+   "/assets/studio/private-ai-in-your-office/private-ai-in-your-office-4.jpg",
+   "/assets/studio/private-ai-in-your-office/private-ai-in-your-office-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/private-ai-in-your-office/thumb-1.jpg",
+   "/assets/studio/private-ai-in-your-office/thumb-2.jpg",
+   "/assets/studio/private-ai-in-your-office/thumb-3.jpg",
+   "/assets/studio/private-ai-in-your-office/thumb-4.jpg",
+   "/assets/studio/private-ai-in-your-office/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "why-ai-needs-gpus",
+  "cat": "Hardware",
+  "pre": "Explained",
+  "title": "Why AI needs GPUs",
+  "sub": "In plain English",
+  "gift": "a GPU buying guide for AI",
+  "caption": "Your laptop can run AI. So why does everyone want a GPU? 🧠\n\nA few geniuses vs an army\n• 8–12 GB: Small models, image tools\n• 16 GB: Most local assistants\n• 24–32 GB+: Bigger models and fast video\n\n💬 Comment \"AGENT\" and we'll send you a GPU buying guide for AI.\n📌 Save this for later and share it with someone who needs it.\n\n#NVIDIA #GPU #AIworkstation #PCbuild #TechSouthAfrica",
+  "images": [
+   "/assets/studio/why-ai-needs-gpus/why-ai-needs-gpus-1.jpg",
+   "/assets/studio/why-ai-needs-gpus/why-ai-needs-gpus-2.jpg",
+   "/assets/studio/why-ai-needs-gpus/why-ai-needs-gpus-3.jpg",
+   "/assets/studio/why-ai-needs-gpus/why-ai-needs-gpus-4.jpg",
+   "/assets/studio/why-ai-needs-gpus/why-ai-needs-gpus-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/why-ai-needs-gpus/thumb-1.jpg",
+   "/assets/studio/why-ai-needs-gpus/thumb-2.jpg",
+   "/assets/studio/why-ai-needs-gpus/thumb-3.jpg",
+   "/assets/studio/why-ai-needs-gpus/thumb-4.jpg",
+   "/assets/studio/why-ai-needs-gpus/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "rtx-5090-vs-5080",
+  "cat": "Hardware",
+  "pre": "Which one?",
+  "title": "RTX 5090 vs 5080",
+  "sub": "For creators and AI",
+  "gift": "our live South African price guide",
+  "caption": "Thinking about a new GPU? Read this before you spend the money 💸\n\nThe real difference\n• You edit video and design: 16 GB is plenty\n• You use cloud AI: No need for huge VRAM\n• Budget matters: Spend the rest on storage\n\n💬 Comment \"AGENT\" and we'll send you our live South African price guide.\n📌 Save this for later and share it with someone who needs it.\n\n#NVIDIA #GPU #AIworkstation #PCbuild #TechSouthAfrica",
+  "images": [
+   "/assets/studio/rtx-5090-vs-5080/rtx-5090-vs-5080-1.jpg",
+   "/assets/studio/rtx-5090-vs-5080/rtx-5090-vs-5080-2.jpg",
+   "/assets/studio/rtx-5090-vs-5080/rtx-5090-vs-5080-3.jpg",
+   "/assets/studio/rtx-5090-vs-5080/rtx-5090-vs-5080-4.jpg",
+   "/assets/studio/rtx-5090-vs-5080/rtx-5090-vs-5080-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/rtx-5090-vs-5080/thumb-1.jpg",
+   "/assets/studio/rtx-5090-vs-5080/thumb-2.jpg",
+   "/assets/studio/rtx-5090-vs-5080/thumb-3.jpg",
+   "/assets/studio/rtx-5090-vs-5080/thumb-4.jpg",
+   "/assets/studio/rtx-5090-vs-5080/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "build-an-ai-workstation",
+  "cat": "Hardware",
+  "pre": "Build guide",
+  "title": "Build an AI workstation",
+  "sub": "Parts that matter",
+  "gift": "three ready-made build lists",
+  "caption": "The parts list we start from when a client wants a serious AI machine 🖥\n\nWhere the money goes\n• A quality power supply: GPUs draw a lot of power\n• Cooling and airflow: Heat slows everything down\n• A UPS: Protects work during load-shedding\n\n💬 Comment \"AGENT\" and we'll send you three ready-made build lists.\n📌 Save this for later and share it with someone who needs it.\n\n#NVIDIA #GPU #AIworkstation #PCbuild #TechSouthAfrica",
+  "images": [
+   "/assets/studio/build-an-ai-workstation/build-an-ai-workstation-1.jpg",
+   "/assets/studio/build-an-ai-workstation/build-an-ai-workstation-2.jpg",
+   "/assets/studio/build-an-ai-workstation/build-an-ai-workstation-3.jpg",
+   "/assets/studio/build-an-ai-workstation/build-an-ai-workstation-4.jpg",
+   "/assets/studio/build-an-ai-workstation/build-an-ai-workstation-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/build-an-ai-workstation/thumb-1.jpg",
+   "/assets/studio/build-an-ai-workstation/thumb-2.jpg",
+   "/assets/studio/build-an-ai-workstation/thumb-3.jpg",
+   "/assets/studio/build-an-ai-workstation/thumb-4.jpg",
+   "/assets/studio/build-an-ai-workstation/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "cloud-or-own-hardware",
+  "cat": "Consulting",
+  "pre": "Do the maths",
+  "title": "Cloud or own hardware?",
+  "sub": "Before you buy a GPU",
+  "gift": "our cloud vs hardware calculator",
+  "caption": "Renting GPUs vs buying one. Here's how to decide without guessing 🧮\n\nRent vs own\n• Hours per month: How much you'll really use it\n• Cloud price per hour: For the GPU you need\n• Hardware price: Plus power and setup\n\n💬 Comment \"AGENT\" and we'll send you our cloud vs hardware calculator.\n📌 Save this for later and share it with someone who needs it.\n\n#TechConsulting #AIstrategy #CloudComputing #SmallBusiness #GPU",
+  "images": [
+   "/assets/studio/cloud-or-own-hardware/cloud-or-own-hardware-1.jpg",
+   "/assets/studio/cloud-or-own-hardware/cloud-or-own-hardware-2.jpg",
+   "/assets/studio/cloud-or-own-hardware/cloud-or-own-hardware-3.jpg",
+   "/assets/studio/cloud-or-own-hardware/cloud-or-own-hardware-4.jpg",
+   "/assets/studio/cloud-or-own-hardware/cloud-or-own-hardware-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/cloud-or-own-hardware/thumb-1.jpg",
+   "/assets/studio/cloud-or-own-hardware/thumb-2.jpg",
+   "/assets/studio/cloud-or-own-hardware/thumb-3.jpg",
+   "/assets/studio/cloud-or-own-hardware/thumb-4.jpg",
+   "/assets/studio/cloud-or-own-hardware/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "run-an-llm-locally",
+  "cat": "AI",
+  "pre": "Try it today",
+  "title": "Run an AI model locally",
+  "sub": "With Ollama",
+  "gift": "our favourite local models list",
+  "caption": "You can run a private AI on your own computer in about 10 minutes 💻\n\nFour steps\n• Install Ollama: Free for Mac, Windows and Linux\n• Pick a model: Start small, like an 8B model\n• Run it: One command in the terminal\n• Add a chat app: Open WebUI for a friendly screen\n\n💬 Comment \"AGENT\" and we'll send you our favourite local models list.\n📌 Save this for later and share it with someone who needs it.\n\n#AI #PromptEngineering #ClaudeAI #ChatGPT #AItools",
+  "images": [
+   "/assets/studio/run-an-llm-locally/run-an-llm-locally-1.jpg",
+   "/assets/studio/run-an-llm-locally/run-an-llm-locally-2.jpg",
+   "/assets/studio/run-an-llm-locally/run-an-llm-locally-3.jpg",
+   "/assets/studio/run-an-llm-locally/run-an-llm-locally-4.jpg",
+   "/assets/studio/run-an-llm-locally/run-an-llm-locally-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/run-an-llm-locally/thumb-1.jpg",
+   "/assets/studio/run-an-llm-locally/thumb-2.jpg",
+   "/assets/studio/run-an-llm-locally/thumb-3.jpg",
+   "/assets/studio/run-an-llm-locally/thumb-4.jpg",
+   "/assets/studio/run-an-llm-locally/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "docker-in-5-minutes",
+  "cat": "Servers",
+  "pre": "Beginner",
+  "title": "Docker in 5 minutes",
+  "sub": "Apps in boxes",
+  "gift": "our starter docker-compose file",
+  "caption": "Every modern server we install runs on Docker. Here's what it actually is 📦\n\nDocker puts each app in its own box.\n• Install in minutes: One file describes the setup\n• Apps don't clash: Each one in its own box\n• Easy updates and backups: Swap a box, keep your data\n\n💬 Comment \"AGENT\" and we'll send you our starter docker-compose file.\n📌 Save this for later and share it with someone who needs it.\n\n#Servers #Docker #SelfHosted #ITsupport #SmallBusinessIT",
+  "images": [
+   "/assets/studio/docker-in-5-minutes/docker-in-5-minutes-1.jpg",
+   "/assets/studio/docker-in-5-minutes/docker-in-5-minutes-2.jpg",
+   "/assets/studio/docker-in-5-minutes/docker-in-5-minutes-3.jpg",
+   "/assets/studio/docker-in-5-minutes/docker-in-5-minutes-4.jpg",
+   "/assets/studio/docker-in-5-minutes/docker-in-5-minutes-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/docker-in-5-minutes/thumb-1.jpg",
+   "/assets/studio/docker-in-5-minutes/thumb-2.jpg",
+   "/assets/studio/docker-in-5-minutes/thumb-3.jpg",
+   "/assets/studio/docker-in-5-minutes/thumb-4.jpg",
+   "/assets/studio/docker-in-5-minutes/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "self-host-n8n",
+  "cat": "Automation",
+  "pre": "Pro",
+  "title": "Self-host n8n",
+  "sub": "Unlimited automations",
+  "gift": "5 n8n workflow templates",
+  "caption": "Automations without paying per task. Self-hosted n8n explained ⚙️\n\nWho runs it?\n• Server: Small VPS or office machine\n• Docker: n8n plus a database\n• HTTPS and login: Secure from the internet\n• Backups: Workflows saved nightly\n\n💬 Comment \"AGENT\" and we'll send you 5 n8n workflow templates.\n📌 Save this for later and share it with someone who needs it.\n\n#Automation #NoCode #Zapier #n8n #Productivity",
+  "images": [
+   "/assets/studio/self-host-n8n/self-host-n8n-1.jpg",
+   "/assets/studio/self-host-n8n/self-host-n8n-2.jpg",
+   "/assets/studio/self-host-n8n/self-host-n8n-3.jpg",
+   "/assets/studio/self-host-n8n/self-host-n8n-4.jpg",
+   "/assets/studio/self-host-n8n/self-host-n8n-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/self-host-n8n/thumb-1.jpg",
+   "/assets/studio/self-host-n8n/thumb-2.jpg",
+   "/assets/studio/self-host-n8n/thumb-3.jpg",
+   "/assets/studio/self-host-n8n/thumb-4.jpg",
+   "/assets/studio/self-host-n8n/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "server-room-basics",
+  "cat": "Servers",
+  "pre": "Checklist",
+  "title": "Server room basics",
+  "sub": "Small office edition",
+  "gift": "our server room checklist",
+  "caption": "Your business runs on that box in the corner. Look after it 🗄\n\nKeep it running\n• Airflow first: Never in a closed cupboard\n• Monitor temperature: Get alerts when it's hot\n• Clean filters: Dust kills hardware\n\n💬 Comment \"AGENT\" and we'll send you our server room checklist.\n📌 Save this for later and share it with someone who needs it.\n\n#Servers #Docker #SelfHosted #ITsupport #SmallBusinessIT",
+  "images": [
+   "/assets/studio/server-room-basics/server-room-basics-1.jpg",
+   "/assets/studio/server-room-basics/server-room-basics-2.jpg",
+   "/assets/studio/server-room-basics/server-room-basics-3.jpg",
+   "/assets/studio/server-room-basics/server-room-basics-4.jpg",
+   "/assets/studio/server-room-basics/server-room-basics-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/server-room-basics/thumb-1.jpg",
+   "/assets/studio/server-room-basics/thumb-2.jpg",
+   "/assets/studio/server-room-basics/thumb-3.jpg",
+   "/assets/studio/server-room-basics/thumb-4.jpg",
+   "/assets/studio/server-room-basics/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "3-2-1-backups",
+  "cat": "Servers",
+  "pre": "Never lose files",
+  "title": "The 3-2-1 backup rule",
+  "sub": "Simple and proven",
+  "gift": "a backup plan template",
+  "caption": "If your laptop died today, what would you lose? 😬\n\n3 copies. 2 types. 1 off-site.\n• Copy 1: Your working files\n• Copy 2: A NAS or external drive in the office\n• Copy 3: Encrypted cloud backup\n\n💬 Comment \"AGENT\" and we'll send you a backup plan template.\n📌 Save this for later and share it with someone who needs it.\n\n#Servers #Docker #SelfHosted #ITsupport #SmallBusinessIT",
+  "images": [
+   "/assets/studio/3-2-1-backups/3-2-1-backups-1.jpg",
+   "/assets/studio/3-2-1-backups/3-2-1-backups-2.jpg",
+   "/assets/studio/3-2-1-backups/3-2-1-backups-3.jpg",
+   "/assets/studio/3-2-1-backups/3-2-1-backups-4.jpg",
+   "/assets/studio/3-2-1-backups/3-2-1-backups-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/3-2-1-backups/thumb-1.jpg",
+   "/assets/studio/3-2-1-backups/thumb-2.jpg",
+   "/assets/studio/3-2-1-backups/thumb-3.jpg",
+   "/assets/studio/3-2-1-backups/thumb-4.jpg",
+   "/assets/studio/3-2-1-backups/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "render-faster-in-blender",
+  "cat": "3D",
+  "pre": "Speed up",
+  "title": "Render faster in Blender",
+  "sub": "GPU settings that matter",
+  "gift": "our Blender render settings preset",
+  "caption": "Waiting hours for a render? These settings fix most of it 🚀\n\nFirst, the big one\n• Use denoising: Fewer samples, clean result\n• Lower max samples: Start around 128–256\n• Adaptive sampling: Stops early when it's clean\n\n💬 Comment \"AGENT\" and we'll send you our Blender render settings preset.\n📌 Save this for later and share it with someone who needs it.\n\n#Blender3D #3DDesign #ProductRender #3DArt #Blender",
+  "images": [
+   "/assets/studio/render-faster-in-blender/render-faster-in-blender-1.jpg",
+   "/assets/studio/render-faster-in-blender/render-faster-in-blender-2.jpg",
+   "/assets/studio/render-faster-in-blender/render-faster-in-blender-3.jpg",
+   "/assets/studio/render-faster-in-blender/render-faster-in-blender-4.jpg",
+   "/assets/studio/render-faster-in-blender/render-faster-in-blender-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/render-faster-in-blender/thumb-1.jpg",
+   "/assets/studio/render-faster-in-blender/thumb-2.jpg",
+   "/assets/studio/render-faster-in-blender/thumb-3.jpg",
+   "/assets/studio/render-faster-in-blender/thumb-4.jpg",
+   "/assets/studio/render-faster-in-blender/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "ai-video-for-brands",
+  "cat": "Video",
+  "pre": "Creative",
+  "title": "AI video for brands",
+  "sub": "What works now",
+  "gift": "our AI video workflow",
+  "caption": "AI video is everywhere. Here's how brands use it without looking fake 🎬\n\nWhere it shines\n• Your face and story: People trust people\n• Real products: Show what you actually sell\n• Real results: Never fake testimonials\n\n💬 Comment \"AGENT\" and we'll send you our AI video workflow.\n📌 Save this for later and share it with someone who needs it.\n\n#VideoMarketing #AIvideo #Reels #ContentCreation #VideoEditing",
+  "images": [
+   "/assets/studio/ai-video-for-brands/ai-video-for-brands-1.jpg",
+   "/assets/studio/ai-video-for-brands/ai-video-for-brands-2.jpg",
+   "/assets/studio/ai-video-for-brands/ai-video-for-brands-3.jpg",
+   "/assets/studio/ai-video-for-brands/ai-video-for-brands-4.jpg",
+   "/assets/studio/ai-video-for-brands/ai-video-for-brands-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/ai-video-for-brands/thumb-1.jpg",
+   "/assets/studio/ai-video-for-brands/thumb-2.jpg",
+   "/assets/studio/ai-video-for-brands/thumb-3.jpg",
+   "/assets/studio/ai-video-for-brands/thumb-4.jpg",
+   "/assets/studio/ai-video-for-brands/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "two-factor-everything",
+  "cat": "Security",
+  "pre": "Do it today",
+  "title": "Turn on 2FA everywhere",
+  "sub": "Stop most hacks",
+  "gift": "our business security checklist",
+  "caption": "One setting blocks most account takeovers. Most people still haven't turned it on 🔐\n\nA password alone isn't enough.\n• Email: The key to every other account\n• Banking and payments: Protect the money\n• Instagram, WhatsApp, Meta: Protect the brand\n\n💬 Comment \"AGENT\" and we'll send you our business security checklist.\n📌 Save this for later and share it with someone who needs it.\n\n#CyberSecurity #2FA #BusinessSecurity #PasswordManager #ITsecurity",
+  "images": [
+   "/assets/studio/two-factor-everything/two-factor-everything-1.jpg",
+   "/assets/studio/two-factor-everything/two-factor-everything-2.jpg",
+   "/assets/studio/two-factor-everything/two-factor-everything-3.jpg",
+   "/assets/studio/two-factor-everything/two-factor-everything-4.jpg",
+   "/assets/studio/two-factor-everything/two-factor-everything-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/two-factor-everything/thumb-1.jpg",
+   "/assets/studio/two-factor-everything/thumb-2.jpg",
+   "/assets/studio/two-factor-everything/thumb-3.jpg",
+   "/assets/studio/two-factor-everything/thumb-4.jpg",
+   "/assets/studio/two-factor-everything/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "ai-images-on-brand",
+  "cat": "Design",
+  "pre": "Creative",
+  "title": "On-brand AI images",
+  "sub": "Prompt like a designer",
+  "gift": "our image prompt templates",
+  "caption": "Most AI images look generic. Here's how to make them look like YOUR brand 🎨\n\nFive things to include\n• Subject: Exactly what's in the picture\n• Style: 3D render, photo, illustration\n• Light: Studio, sunset, neon\n• Colours: Your brand palette\n\n💬 Comment \"AGENT\" and we'll send you our image prompt templates.\n📌 Save this for later and share it with someone who needs it.\n\n#GraphicDesign #DesignTips #BrandDesign #Typography #DesignInspiration",
+  "images": [
+   "/assets/studio/ai-images-on-brand/ai-images-on-brand-1.jpg",
+   "/assets/studio/ai-images-on-brand/ai-images-on-brand-2.jpg",
+   "/assets/studio/ai-images-on-brand/ai-images-on-brand-3.jpg",
+   "/assets/studio/ai-images-on-brand/ai-images-on-brand-4.jpg",
+   "/assets/studio/ai-images-on-brand/ai-images-on-brand-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/ai-images-on-brand/thumb-1.jpg",
+   "/assets/studio/ai-images-on-brand/thumb-2.jpg",
+   "/assets/studio/ai-images-on-brand/thumb-3.jpg",
+   "/assets/studio/ai-images-on-brand/thumb-4.jpg",
+   "/assets/studio/ai-images-on-brand/thumb-5.jpg"
+  ]
+ },
+ {
+  "slug": "smart-cameras-for-shops",
+  "cat": "Edge AI",
+  "pre": "Edge AI",
+  "title": "Smart cameras for shops",
+  "sub": "AI on the device",
+  "gift": "a free edge AI ideas list",
+  "caption": "Your security cameras could also count customers and spot empty shelves 📷\n\nThe AI runs inside the camera box.\n• Count visitors: Busy hours and staffing\n• Shelf alerts: Spot gaps before customers do\n• Queue alerts: Open another till in time\n\n💬 Comment \"AGENT\" and we'll send you a free edge AI ideas list.\n📌 Save this for later and share it with someone who needs it.\n\n#EdgeAI #Jetson #RetailTech #ComputerVision #SmartCameras",
+  "images": [
+   "/assets/studio/smart-cameras-for-shops/smart-cameras-for-shops-1.jpg",
+   "/assets/studio/smart-cameras-for-shops/smart-cameras-for-shops-2.jpg",
+   "/assets/studio/smart-cameras-for-shops/smart-cameras-for-shops-3.jpg",
+   "/assets/studio/smart-cameras-for-shops/smart-cameras-for-shops-4.jpg",
+   "/assets/studio/smart-cameras-for-shops/smart-cameras-for-shops-5.jpg"
+  ],
+  "thumbs": [
+   "/assets/studio/smart-cameras-for-shops/thumb-1.jpg",
+   "/assets/studio/smart-cameras-for-shops/thumb-2.jpg",
+   "/assets/studio/smart-cameras-for-shops/thumb-3.jpg",
+   "/assets/studio/smart-cameras-for-shops/thumb-4.jpg",
+   "/assets/studio/smart-cameras-for-shops/thumb-5.jpg"
+  ]
  }
 ]

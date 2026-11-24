@@ -16,9 +16,16 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'assets', 'studio');
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'posts.js'), 'utf8'), sandbox);
-const POSTS = sandbox.window.POSTS;
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'posts2.js'), 'utf8'), sandbox);
+const POSTS = sandbox.window.POSTS.concat(sandbox.window.POSTS2 || []);
 
 const TAGS = {
+  Hardware: '#NVIDIA #GPU #AIworkstation #PCbuild #TechSouthAfrica',
+  Servers: '#Servers #Docker #SelfHosted #ITsupport #SmallBusinessIT',
+  Consulting: '#TechConsulting #AIstrategy #CloudComputing #SmallBusiness #GPU',
+  Video: '#VideoMarketing #AIvideo #Reels #ContentCreation #VideoEditing',
+  Security: '#CyberSecurity #2FA #BusinessSecurity #PasswordManager #ITsecurity',
+  'Edge AI': '#EdgeAI #Jetson #RetailTech #ComputerVision #SmartCameras',
   Agents: '#AIagents #AIautomation #SmallBusiness #CustomerService #WhatsAppBusiness',
   Sales: '#SalesTips #LeadGeneration #AIagents #SmallBusiness #Automation',
   AI: '#AI #PromptEngineering #ClaudeAI #ChatGPT #AItools',
