@@ -41,10 +41,10 @@
     function fb() { var t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch (e) { say('Select the caption to copy it'); } t.remove(); }
   }
   function render(filter) {
-    grid.innerHTML = posts.filter(function (p) { return !filter || filter === 'All' || p.cat === filter; }).map(function (p) {
+    grid.innerHTML = posts.filter(function (p) { return !filter || filter === 'All' || (filter === 'NVIDIA' ? p.nvidia : p.cat === filter); }).map(function (p) {
       var i = posts.indexOf(p);
       return '<article class="sp" data-i="' + i + '">' +
-        '<button class="sp-cover" type="button" aria-label="Preview ' + esc(p.title) + '"><img src="' + p.thumbs[0] + '" alt="' + esc(p.pre + ' ' + p.title) + ' cover" loading="lazy" width="360" height="450"><span class="sp-n">5 slides</span></button>' +
+        '<button class="sp-cover" type="button" aria-label="Preview ' + esc(p.title) + '"><img src="' + p.thumbs[0] + '" alt="' + esc(p.pre + ' ' + p.title) + ' cover" loading="lazy" width="360" height="450">' + (p.nvidia ? '<span class="sp-nv">NVIDIA</span>' : '') + '<span class="sp-n">5 slides</span></button>' +
         '<div class="sp-body"><span class="eyebrow">' + esc(p.cat) + '</span><h3>' + esc(p.title) + '</h3><p>Gift: ' + esc(p.gift) + '</p>' +
         '<div class="sp-strip" hidden>' + p.thumbs.map(function (t, k) { return '<a href="' + p.images[k] + '" target="_blank" rel="noopener"><img src="' + t + '" alt="Slide ' + (k + 1) + '" loading="lazy" width="360" height="450"></a>'; }).join('') + '</div>' +
         '<div class="sp-actions"><button class="btn btn-pink sm" data-act="zip" type="button">Download all 5</button>' +

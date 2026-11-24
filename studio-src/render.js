@@ -55,8 +55,10 @@ function caption(p) {
 }
 
 (async () => {
-  const only = process.argv.slice(2);
+  const metaOnly = process.argv.includes('--meta');
+  const only = process.argv.slice(2).filter((a) => a !== '--meta');
   const list = only.length ? POSTS.filter((p) => only.includes(p.slug)) : POSTS;
+  if (!metaOnly) {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 5400, height: 1350 } });
   const thumbs = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
@@ -79,8 +81,15 @@ function caption(p) {
     process.stdout.write(`✓ ${p.slug}\n`);
   }
   await browser.close();
+  }
 
-  const meta = POSTS.map((p) => ({
+  // NVIDIA-related posts (GPUs, RTX, Jetson, DGX, CUDA) go to the top of the Studio list
+  const NV = /nvidia|rtx|gpu|jetson|dgx|cuda|optix/i;
+  const isNv = (p) => NV.test(JSON.stringify(p));
+  const nvScore = (p) => (JSON.stringify(p).match(/nvidia|rtx|gpu|jetson|dgx|cuda|optix/gi) || []).length;
+  const ordered = POSTS.filter(isNv).sort((a, b) => nvScore(b) - nvScore(a)).concat(POSTS.filter((p) => !isNv(p)));
+  const meta = ordered.map((p) => ({
+    nvidia: isNv(p),
     slug: p.slug, cat: p.cat, pre: p.pre, title: p.title.replace(/\|/g, ' '), sub: p.sub, gift: p.gift,
     caption: caption(p),
     images: [1, 2, 3, 4, 5].map((n) => `/assets/studio/${p.slug}/${p.slug}-${n}.jpg`),
@@ -88,5 +97,5 @@ function caption(p) {
   }));
   fs.mkdirSync(path.join(ROOT, 'studio'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'studio', 'posts.json'), JSON.stringify(meta, null, 1));
-  console.log(`\n${list.length} posts rendered, studio/posts.json written.`);
+  console.log(metaOnly ? `studio/posts.json written (${meta.length} posts).` : `\n${list.length} posts rendered, studio/posts.json written.`);
 })();

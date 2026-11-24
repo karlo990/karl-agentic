@@ -474,7 +474,7 @@ def brand_page():
 
 def studio_page():
     posts = json.loads((ROOT / "studio" / "posts.json").read_text())
-    cats = ["All"] + sorted({p["cat"] for p in posts})
+    cats = ["All", "NVIDIA"] + sorted({p["cat"] for p in posts})
     chips = "".join(f'<button type="button" aria-pressed="{"true" if c=="All" else "false"}">{c}</button>' for c in cats)
     body = f'''{header("studio")}
 <main>
